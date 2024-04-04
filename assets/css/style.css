@@ -12,4 +12,13 @@ header {
 #reaction-box {
     border: 1px solid black;
     height: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+.user-time {
+    display: none;
+    font-size: 140%;
 }
