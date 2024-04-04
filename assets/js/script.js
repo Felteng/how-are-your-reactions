@@ -5,8 +5,9 @@ document.addEventListener("DOMContentLoaded", function() {
     startBox.addEventListener("click", function() {
 
         if (gameIsOn === false) {
-            gameStartTimer();
             gameIsOn = true;
+            startBox.style.backgroundColor = "red";
+            gameStartTimer();
         } else if (gameIsOn === true) {
             null
         }
@@ -35,12 +36,17 @@ function speedTimer() {
 
     let timer = setInterval(function() {
         sec += 1;
-        console.log(sec.toFixed(3)*4);
     } ,0);
 
+    /**
+     * Wait for user to react and click the reaction-box
+     * to end the timer and display the time it took
+     */
     document.getElementById("reaction-box").addEventListener("click", function() {
-        console.log(`Your time was: ${sec.toFixed(3)*4}`) // Multiply by 4 here to account for the standard 4ms interval delay in browsers
-        clearInterval(timer);
+        console.log(`Your time was: ${sec.toFixed(3)*4}`) 
+        clearInterval(timer);        
+        document.getElementsByClassName("user-time")[0].style.display = "block";
+        document.getElementById("time-score").innerHTML = sec.toFixed(3) * 4 // Multiply by 4 here to account for the standard 4ms interval delay in browsers
     })
 }
 
