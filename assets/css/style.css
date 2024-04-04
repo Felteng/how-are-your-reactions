@@ -1,0 +1,15 @@
+/* Header */
+header {
+    text-align: center;
+}
+
+/* Body */
+.game-info {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+#reaction-box {
+    border: 1px solid black;
+    height: 350px;
+}
