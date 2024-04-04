@@ -1,14 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap');
+
+/* Body general rules */
+body {
+    font-family: "Yantramanav", sans-serif;
+}
+
 /* Header */
 header {
     text-align: center;
 }
 
-/* Body */
+.header-h1 {
+    font-size: 180%;
+}
+
+/* Main */
 .game-info {
     text-align: center;
     margin-top: 4rem;
 }
 
+/* Game div */
 #reaction-box {
     border: 1px solid black;
     height: 350px;
@@ -21,4 +33,21 @@ header {
 .user-time {
     display: none;
     font-size: 140%;
+}
+
+@media screen and (min-width: 768px) {
+
+    /* Header */
+    .header-h1 {
+        font-size: 360%;
+    }
+
+    /* Main */
+    #reaction-box {
+        height: 550px;
+    }
+
+    .user-time {
+        font-size: 200%;
+    }
 }
