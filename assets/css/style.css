@@ -28,7 +28,7 @@ header {
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: space-around;
-    box-shadow: 3px 3px 9px black;
+    box-shadow: 2px 2px 3px black;
 }
 
 .user-notif {
