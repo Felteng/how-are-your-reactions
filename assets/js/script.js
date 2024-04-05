@@ -12,8 +12,8 @@ startBox.addEventListener("click", function() {
         document.getElementById("notify-user").style.display = "none";
         startBox.style.backgroundColor = "red";
         gameStartTimer();
-    } else if (gameIsOn === true) {
-        null // Make it so multiple games cannot get started at the same time by clicking lots.
+    } else {
+        null // Make it so multiple games cannot get started at the same time by clicking a lot.
     }
 });
 }
@@ -23,7 +23,7 @@ function gameStartTimer() {
     const min = 1;
     const max = 5;
     let startTime = Math.floor(Math.random() * (max - min + 1) + min); // Generate a random start time between 1 - 5 seconds
-    const startTimer = setTimeout(reactionGame, startTime * 1000);
+    const startTimer = setTimeout(reactionGame, startTime * 1000); // Countdown to call reactionGame function
 
     const startBox = document.getElementById("reaction-box");
     const userNotification = document.getElementById("notify-user");
