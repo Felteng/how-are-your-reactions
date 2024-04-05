@@ -18,6 +18,7 @@ header {
 .game-info {
     text-align: center;
     margin-top: 4rem;
+    font-size: 125%;
 }
 
 /* Game div */
