@@ -9,20 +9,29 @@ startBox.addEventListener("click", function() {
 
     if (gameIsOn === false) {
         gameIsOn = true;
-        document.getElementById("notify-user").style.display = "none";
+        if (this.getAttribute("game-mode") === "reaction") {
+            const gameMode = "reaction";
+            gameStartTimer(gameMode);
+            document.getElementById("notify-user").style.display = "none";
+        } else if (this.getAttribute("game-mode") === "grid") {
+            const gameMode = "grid";
+            gameStartTimer(gameMode)
+        }
         startBox.style.backgroundColor = "red";
-        gameStartTimer();
+        
     } else {
         null // Make it so multiple games cannot get started at the same time by clicking a lot.
     }
 });
 }
 
-function gameStartTimer() {
+function gameStartTimer(gameMode) {
 
     const min = 1;
     const max = 5;
     let startTime = Math.floor(Math.random() * (max - min + 1) + min); // Generate a random start time between 1 - 5 seconds
+
+    if (gameMode === "reaction") {
     const startTimer = setTimeout(reactionGame, startTime * 1000); // Countdown to call reactionGame function
 
     const startBox = document.getElementById("reaction-box");
@@ -35,18 +44,21 @@ function gameStartTimer() {
      */
     startBox.addEventListener("click", tooSoon); // Check if user clicks during start timer
 
-    setTimeout(function() {
-        startBox.removeEventListener("click", tooSoon) // Remove listener at the same timer as the game start timer to prevent bugs
-    }, startTime * 1000)
+        setTimeout(function() {
+            startBox.removeEventListener("click", tooSoon) // Remove listener at the same time as the game starts to prevent bugs and loops
+        }, startTime * 1000)
 
-    function tooSoon() {
+        function tooSoon() {
 
-            clearTimeout(startTimer);
-            userNotification.textContent = "Oops! Too soon.. Try again!";
-            userNotification.style.display = "block";
-            startBox.removeEventListener("click", tooSoon)
-            startGame()
-    }  
+                clearTimeout(startTimer);
+                userNotification.textContent = "Oops! Too soon.. Try again!";
+                userNotification.style.display = "block";
+                startBox.removeEventListener("click", tooSoon)
+                startGame()
+        }  
+    } else if (gameMode === "grid") {
+        setTimeout(gridGame, startTime * 1000);
+    }
 };
 
 function reactionGame() {
@@ -81,8 +93,23 @@ function reactionGame() {
     }
 }
 
-function precisionGame() {
+function gridGame() {
+    const startBox = document.getElementById("reaction-box");
+    startBox.style.backgroundColor = "inherit";
 
+    let = tileIndex = Math.floor(Math.random() * 16);
+    const gameTile = document.getElementsByClassName("grid-game")[0].getElementsByTagName("th")[tileIndex];
+    gameTile.setAttribute("id", "game-tile")
+
+    let clickTile = document.getElementById("game-tile")
+
+    clickTile.addEventListener("click", function() {
+        clickTile.removeAttribute("id")
+        let = i = Math.floor(Math.random() * 16);
+        let gamerTile = document.getElementsByClassName("grid-game")[0].getElementsByTagName("th")[i];
+        gamerTile.setAttribute("id", "game-tile")
+
+    })
 }
 
 function accuracyTracker() {
