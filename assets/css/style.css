@@ -1,17 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap');
 
+* {
+    margin: 0px;
+}
+
 /* Body general rules */
 body {
     font-family: "Yantramanav", sans-serif;
 }
 
 /* Header */
-header {
-    text-align: center;
+
+.header-bar {
+
+    box-shadow: 0px 1px 2px black;
 }
 
 .header-h1 {
-    font-size: 180%;
+    font-size: 170%;
+    text-align: center;
+}
+
+.home-link {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* Main */
@@ -24,7 +36,8 @@ header {
 /* Game div */
 #reaction-box {
     border: 1px solid black;
-    height: 350px;
+    height: 350px;    
+    margin: 8px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
