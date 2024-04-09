@@ -105,36 +105,55 @@ function reactionGame() {
 }
 
 function gridGame() {
+
     const startBox = document.getElementById("reaction-box");
     startBox.style.backgroundColor = "inherit";
 
     tileChange()
 
-    function tileChange() {
-        let tileIndex = Math.floor(Math.random() * 16);
-        let gameTile = document.getElementsByClassName("grid-game")[0].getElementsByTagName("th")[tileIndex];
-        gameTile.setAttribute("id", "game-tile")
-        userClick()
+}
 
-    }
+function tileChange() {
 
-    let score = 0
-
-    function userClick() {
-
-        document.getElementById("game-tile").addEventListener("click", function clickTile() {
-
-            document.getElementById("game-tile").removeEventListener("click", clickTile)
-            document.getElementById("game-tile").removeAttribute("id")
-            console.log("clicked")
-            score++
-            console.log(score)
-            tileChange()
-
-        })
-    }
+    let tileIndex = Math.floor(Math.random() * 16);
+    let gameTile = document.getElementsByClassName("grid-game")[0].getElementsByTagName("th")[tileIndex];
+    gameTile.setAttribute("id", "game-tile");
+    tileClick();
+    
 }
 
 function accuracyTracker() {
 
+}
+
+function tileClick() {
+    let count = 0
+
+    let timer = setInterval(function() {
+        for (let i = 0; i < 10; i++) {
+        count++;
+        console.log(count);
+
+            if (count === 400) {
+                clearInterval(timer)
+                document.getElementById("game-tile").removeEventListener("click", clear)
+                document.getElementById("game-tile").removeAttribute("id")
+                tileChange()
+
+        }
+    }},10)
+
+
+
+        
+        document.getElementById("game-tile").addEventListener("click", clear)
+
+        function clear() {
+
+            clearInterval(timer)
+            document.getElementById("game-tile").removeEventListener("click", clear)
+            document.getElementById("game-tile").removeAttribute("id")
+            tileChange()
+
+        }  
 }
