@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", startGame())
 function startGame() {
     let gameIsOn = false;
 
-    const startBox = document.getElementById("reaction-box");
+    const startBox = document.getElementById("game-box");
     startBox.addEventListener("click", function () {
 
         if (gameIsOn === false) {
@@ -40,7 +40,7 @@ function gameStartTimer(gameMode) {
 
         const startTimer = setTimeout(reactionGame, startTime * 1000); // Countdown to call reactionGame function
 
-        const startBox = document.getElementById("reaction-box");
+        const startBox = document.getElementById("game-box");
         const userNotification = document.getElementById("notify-user");
 
         /**
@@ -74,7 +74,7 @@ function gameStartTimer(gameMode) {
 
 function reactionGame() {
 
-    const startBox = document.getElementById("reaction-box");
+    const startBox = document.getElementById("game-box");
     startBox.style.backgroundColor = "green";
     let sec = 0;
 
@@ -87,7 +87,7 @@ function reactionGame() {
     }, 0);
 
     /**
-     * Wait for user to react and click the reaction-box
+     * Wait for user to react and click the game-box
      * to end the timer and display the time it took
      */
     startBox.addEventListener("click", stopGame)
@@ -106,7 +106,7 @@ function reactionGame() {
 
 function gridGame() {
 
-    const startBox = document.getElementById("reaction-box");
+    const startBox = document.getElementById("game-box");
     startBox.style.backgroundColor = "inherit";
 
     tileChange()
@@ -132,7 +132,6 @@ function tileClick() {
     let timer = setInterval(function() {
         for (let i = 0; i < 10; i++) {
         count++;
-        console.log(count);
 
             if (count === 400) {
                 clearInterval(timer)
@@ -140,8 +139,9 @@ function tileClick() {
                 document.getElementById("game-tile").removeAttribute("id")
                 tileChange()
 
-        }
-    }},10)
+            }
+        }   
+    },10)
 
 
 
