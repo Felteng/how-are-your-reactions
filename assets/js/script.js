@@ -105,55 +105,74 @@ function reactionGame() {
 }
 
 function gridGame() {
-
+    let score = 0;
+    let gameIsOn = true;
     const startBox = document.getElementById("game-box");
     startBox.style.backgroundColor = "inherit";
 
     tileChange()
-
-}
-
-function tileChange() {
-
-    let tileIndex = Math.floor(Math.random() * 16);
-    let gameTile = document.getElementsByClassName("grid-game")[0].getElementsByTagName("th")[tileIndex];
-    gameTile.setAttribute("id", "game-tile");
-    tileClick();
-    
-}
-
-function accuracyTracker() {
-
-}
-
-function tileClick() {
-    let count = 0
-
-    let timer = setInterval(function() {
-        for (let i = 0; i < 10; i++) {
-        count++;
-
-            if (count === 400) {
-                clearInterval(timer)
-                document.getElementById("game-tile").removeEventListener("click", clear)
-                document.getElementById("game-tile").removeAttribute("id")
-                tileChange()
-
-            }
-        }   
-    },10)
+    gridGameTime()
 
 
 
+    function tileChange() {
+
+        if (gameIsOn) {
+        let tileIndex = Math.floor(Math.random() * 16);
+        let gameTile = document.getElementsByClassName("grid-game")[0].getElementsByTagName("th")[tileIndex];
+        gameTile.setAttribute("id", "game-tile");
+        tileClick();
+        } else {
+            null
+        }
+    }
+
+
+
+    function tileClick() {
         
-        document.getElementById("game-tile").addEventListener("click", clear)
+        let count = 0;
 
-        function clear() {
+        /**
+         * Time trial function so that if the user does not 
+         * click the tile within the given "count === x" 
+         * the tile will change to a new one
+         */
+        let timer = setInterval(function() {
+            for (let i = 0; i < 10; i++) {
+            count++;
 
+                if (count === 800) {
+                    score--
+                    console.log(score)
+                    clearInterval(timer)
+                    document.getElementById("game-tile").removeEventListener("click", userClick)
+                    document.getElementById("game-tile").removeAttribute("id")
+                    tileChange()
+
+                }
+            }   
+        },10)
+
+
+
+            
+        document.getElementById("game-tile").addEventListener("click", userClick)
+
+        function userClick() {
+            score++
+            console.log(score)
             clearInterval(timer)
-            document.getElementById("game-tile").removeEventListener("click", clear)
+            document.getElementById("game-tile").removeEventListener("click", userClick)
             document.getElementById("game-tile").removeAttribute("id")
             tileChange()
 
         }  
+    }
+
+    function gridGameTime() {
+        setTimeout(() => {
+            gameIsOn = false
+        }, 10000);
+    }
 }
