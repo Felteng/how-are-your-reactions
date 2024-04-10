@@ -104,10 +104,15 @@ function reactionGame() {
     }
 }
 
+
+var highScore = 0;
+
 function gridGame() {
     let score = 0;
     let gameIsOn = true;
     const startBox = document.getElementById("game-box");
+    const currentScore = document.getElementById("score");
+    const highestScore = document.getElementById("highscore")
     startBox.style.backgroundColor = "inherit";
 
     tileChange()
@@ -123,7 +128,7 @@ function gridGame() {
         gameTile.setAttribute("id", "game-tile");
         tileClick();
         } else {
-            null
+            stopGame()
         }
     }
 
@@ -144,7 +149,7 @@ function gridGame() {
 
                 if (count === 800) {
                     score--
-                    console.log(score)
+                    currentScore.innerHTML = score;
                     clearInterval(timer)
                     document.getElementById("game-tile").removeEventListener("click", userClick)
                     document.getElementById("game-tile").removeAttribute("id")
@@ -160,11 +165,11 @@ function gridGame() {
         document.getElementById("game-tile").addEventListener("click", userClick)
 
         function userClick() {
-            score++
-            console.log(score)
-            clearInterval(timer)
-            document.getElementById("game-tile").removeEventListener("click", userClick)
-            document.getElementById("game-tile").removeAttribute("id")
+            score++;
+            currentScore.innerHTML = score;
+            clearInterval(timer);
+            document.getElementById("game-tile").removeEventListener("click", userClick);
+            document.getElementById("game-tile").removeAttribute("id");
             tileChange()
 
         }  
@@ -173,6 +178,19 @@ function gridGame() {
     function gridGameTime() {
         setTimeout(() => {
             gameIsOn = false
+            
         }, 10000);
+    }
+
+    function stopGame() {
+       if (score > highScore) {
+        highScore = score;
+        highestScore.innerHTML = highScore
+        } 
+
+        startBox.style.backgroundColor = "green";
+        setTimeout(() => {
+            startGame()
+        }, 2000);
     }
 }
