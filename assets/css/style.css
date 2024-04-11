@@ -44,10 +44,13 @@ main {
     padding: 1px;
 }
 
-/* Game div */
+/* Game section */
+
+/* Reaction game styling */
 .reaction {
     border: 1px solid black;
-    height: 350px;    
+    height: 350px;   
+    width: 98vw; 
     margin: 8px;
     display: flex;
     flex-wrap: wrap;
@@ -62,6 +65,7 @@ main {
     0%;
 }
 
+/* Grid game styling */
 .grid {
     border: 1px solid black;
     height: 98vw;
@@ -79,6 +83,7 @@ main {
 /* Other game */
 .grid-game-p {
     margin: 1rem;
+    align-self: flex-start;
 }
 
 /* .game-link {
