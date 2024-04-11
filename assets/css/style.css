@@ -39,8 +39,13 @@ body {
     color: inherit;
 }
 
-.games-p {
-    
+.game-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.active-page {
+    color: #585858;
 }
 
 .nav-bar {
