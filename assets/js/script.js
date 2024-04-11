@@ -36,7 +36,9 @@ function gameStartTimer(gameMode) {
     const max = 5;
     let startTime = Math.floor(Math.random() * (max - min + 1) + min); // Generate a random start time between 1 - 5 seconds
 
-    if (gameMode === "reaction") {
+    // Reaction game start execution
+    
+    if (gameMode === "reaction") { 
 
         const startTimer = setTimeout(reactionGame, startTime * 1000); // Countdown to call reactionGame function
 
@@ -65,12 +67,17 @@ function gameStartTimer(gameMode) {
             startGame()
 
         }
-    } else if (gameMode === "grid") {
+
+    // Grid game start execution    
+
+    } else if (gameMode === "grid") { 
 
         setTimeout(gridGame, startTime * 1000);
 
     }
 };
+
+// Reaction game specific JS
 
 function reactionGame() {
 
@@ -83,8 +90,12 @@ function reactionGame() {
      * the game has begun
      */
     let timer = setInterval(function () {
-        sec++
-    }, 0);
+        for (let i = 0; i < 9; i++) {
+            
+           sec++ 
+        }
+        
+    }, 11);
 
     /**
      * Wait for user to react and click the game-box
@@ -94,7 +105,7 @@ function reactionGame() {
 
     function stopGame() {
 
-        console.log(`Your time was: ${sec.toFixed(3)*4}`);
+        console.log(`Your time was: ${sec.toFixed(3)}`);
         clearInterval(timer);
         document.getElementById("notify-user").style.display = "block";
         document.getElementById("notify-user").innerHTML = `Your time was: ${sec.toFixed(3) * 4}ms` // Multiply by 4 here to account for the standard 4ms interval delay in browsers
@@ -104,6 +115,8 @@ function reactionGame() {
     }
 }
 
+
+// Grid game specific JS
 
 var highScore = 0;
 
