@@ -90,11 +90,9 @@ function reactionGame() {
      * the game has begun
      */
     let timer = setInterval(function () {
-        for (let i = 0; i < 9; i++) {
-            
+        for (let i = 0; i < 9; i++) {  
            sec++ 
         }
-        
     }, 11);
 
     /**
@@ -105,10 +103,10 @@ function reactionGame() {
 
     function stopGame() {
 
-        console.log(`Your time was: ${sec.toFixed(3)}`);
+        console.log(`Your time was: ${sec}`);
         clearInterval(timer);
         document.getElementById("notify-user").style.display = "block";
-        document.getElementById("notify-user").innerHTML = `Your time was: ${sec.toFixed(3) * 4}ms` // Multiply by 4 here to account for the standard 4ms interval delay in browsers
+        document.getElementById("notify-user").innerHTML = `Your time was: ${sec}ms` // Multiply by 4 here to account for the standard 4ms interval delay in browsers
         startBox.removeEventListener("click", stopGame) // Remove eventListener to avoid the game function lingering and restarting multiple games every click.
         startGame()
 
