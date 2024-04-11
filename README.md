@@ -1,5 +1,11 @@
-# How fast are you reactions?
-
+# How Are Your Reactions
+### Welcome to How Are Your Reactions. 
+- Test your reaction time with our **Reaction Game**.  
+    - Simply wait and react as the big window turns green. And see how you did.
+- Additionally you can test and hone your skills when it comes to continous reactions with our **Grid Game**.
+    - Features the same start procedure as the Reaction Game but here you will click multiple small green tiles as they appear.
+    - Keep track of your score and your highscore.
+    - Modify the difficulty yourself to increase the score you gain. But also increase your losses when you fail to click in time!
 ## Wireframes and initial js function planning
 
 - Wireframes \
