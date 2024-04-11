@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* background: url("../images/background-image.jpg") no-repeat center center/cover; */
+    background: url("../images/background.jpg") no-repeat center center/cover;
 }
 
 /* Header */
@@ -74,6 +74,7 @@ main {
 /* Reaction game styling */
 .reaction {
     border: 1px solid black;
+    background-color: #b9b9b9;
     height: 350px;   
     width: 98vw; 
     margin: 8px;
@@ -93,6 +94,7 @@ main {
 /* Grid game styling */
 .grid {
     border: 1px solid black;
+    background-color: #b9b9b9;
     height: 98vw;
     max-height: 70vh;
     width: 98vw;
