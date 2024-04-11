@@ -1,5 +1,32 @@
 document.addEventListener("DOMContentLoaded", startGame())
 
+// Navbar toggling
+navigation()
+
+function navigation() {
+    let navToggled = false
+
+    let navBar = document.getElementsByClassName("nav-bar")[0]
+    let navToggler = document.getElementsByClassName("navbar-toggle")[0]
+
+    navToggler.addEventListener("click", toggleNav)
+
+    function toggleNav() {
+        if (navToggled === false) {
+            navBar.style.display = "block";
+            navToggler.classList.remove("fa-bars")
+            navToggler.classList.add("fa-x")
+            navToggled = true;
+        } else if (navToggled === true) {
+            navBar.style.display = "none"
+            navToggler.classList.remove("fa-x")
+            navToggler.classList.add("fa-bars")
+            navToggled = false
+        }     
+        
+    }
+        
+}
 
 function startGame() {
     let gameIsOn = false;
