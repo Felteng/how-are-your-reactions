@@ -1,7 +1,5 @@
-document.addEventListener("DOMContentLoaded", startGame())
-
-// Navbar toggling
-navigation()
+// Start nav-bar toggling and eventlistener for starting the game on each page
+document.addEventListener("DOMContentLoaded", startGame(), navigation())
 
 function navigation() {
     let navToggled = false
