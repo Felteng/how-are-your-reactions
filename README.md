@@ -31,8 +31,8 @@
 | Bug    | Status      | Description | Solution |
 | --- | ------ | ----------- | -------- |
 | Multiple games being ran at once | Resolved | If the user clicks the start box multiple times the start timer will trigger each time and end up with a lot of games being ran simultaneously | Add a boolean that prevents the start timer being called if true |
-| Game timer inaccurate | Resolved | When running the game the timer is going a lot slower than the setInterval. There's a built in delay of 4ms in modern browsers. | Multiply the time by 4 for better result
-| Game timer can only count every 4ms | ACTIVE | The game will only display the users times in results divisible by 4 as product of the bug fix above | Rewrite the function to not only rely on setInterval. Possibly a for loop inside the interval? |
-|        |              |                        |                  |
+| Game timer inaccurate | Resolved | When running the game the timer is going a lot slower than the setInterval. There's a built in delay of 4ms in modern browsers | Multiply the time by 4 for better result
+| Game timer can only count every 4ms | Expired | The game will only display the users times in results divisible by 4 as product of the bug fix above | *PROPOSAL*: Rewrite the function to not only rely on setInterval. Possibly a for loop inside the interval? | 
+| Game timer result always divisble by 9 | ACTIVE | The result of the timer for the reaction game is always divisble by 9 thanks to the new interval of 11s with a for loop nested inside for *9* iterations. This provdided a bit better accuracy but the timer is still not 1ms precise | *PROPASAL*: Revisit the problem at a later stage and prioritize other elements of the site first |
 |        |              |                        |                  |
 |        |              |                        |                  |
