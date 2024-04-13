@@ -7,7 +7,7 @@ function navigation() {
     let navToggled = false
 
     let navBar = document.getElementsByClassName("nav-bar")[0]
-    let navToggler = document.getElementsByClassName("navbar-toggle")[0]
+    let navToggler = document.getElementById("navbar-toggle")
 
     navToggler.addEventListener("click", toggleNav)
 

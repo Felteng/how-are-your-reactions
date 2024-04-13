@@ -22,7 +22,7 @@ body {
     flex-wrap: wrap;
 }
 
-.navbar-toggle {
+#navbar-toggle {
     font-size: 150%;
     margin: auto;
     align-self: center;
@@ -125,6 +125,7 @@ main {
     margin: 5px;
 }
 
+/* Media queries for screens of 768px and larger */
 @media screen and (min-width: 768px) {
 
     /* Header */
@@ -139,6 +140,13 @@ main {
 
     .user-time {
         font-size: 200%;
+    }
+}
+
+/* Media queries for screens of 1024px and larger */
+@media screen and (min-width: 1024px) {
+    #navbar-toggle {
+        display: none;
     }
 }
 
