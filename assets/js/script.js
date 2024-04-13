@@ -1,6 +1,7 @@
-// Start nav-bar toggling and eventlistener for starting the game on each page
+// Start nav-bar toggling and eventlistener for starting the game when document is loaded
 document.addEventListener("DOMContentLoaded", startGame(), navigation())
 
+// Allow the user to toggle the navbar if their screen size needs it
 function navigation() {
     let navToggled = false
 
