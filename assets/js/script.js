@@ -161,7 +161,7 @@ function gridGame() {
 
         if (gameIsOn) {
         let tileIndex = Math.floor(Math.random() * 16);
-        let gameTile = document.getElementsByClassName("grid-game")[0].getElementsByTagName("th")[tileIndex];
+        let gameTile = document.getElementsByClassName("grid-table")[0].getElementsByTagName("th")[tileIndex];
         gameTile.setAttribute("id", "game-tile");
         tileClick();
         } else {
