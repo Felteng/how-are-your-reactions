@@ -144,14 +144,29 @@ function reactionGame() {
 
 var highScore = 0;
 
+
 function gridGame() {
     let score = 0;
     let gameIsOn = true;
+    const gridDifficulty = document.getElementById("grid-difficulty").value;
     const startBox = document.getElementById("game-box");
     const currentScore = document.getElementById("score");
     const highestScore = document.getElementById("highscore")
-    startBox.style.backgroundColor = "inherit";
 
+    // Set tile frequency and point gain based on difficulty selection
+    if (gridDifficulty === "easy") {
+        var tileTime = 800;
+        var scoreGain = 10;
+    } else if (gridDifficulty === "medium") {
+        var tileTime = 600;
+        var scoreGain = 15
+    } else if (gridDifficulty === "hard") {
+        var tileTime = 400;
+        var scoreGain = 20;
+    }
+
+    startBox.style.backgroundColor = "#b9b9b9";
+    console.log(gridDifficulty)
     tileChange()
     gridGameTime()
 
@@ -184,8 +199,8 @@ function gridGame() {
             for (let i = 0; i < 10; i++) {
             count++;
 
-                if (count === 800) {
-                    score--
+                if (count === tileTime) {
+                    score -= 10 ;
                     currentScore.innerHTML = score;
                     clearInterval(timer)
                     document.getElementById("game-tile").removeEventListener("click", userClick)
@@ -202,7 +217,7 @@ function gridGame() {
         document.getElementById("game-tile").addEventListener("click", userClick)
 
         function userClick() {
-            score++;
+            score += scoreGain;
             currentScore.innerHTML = score;
             clearInterval(timer);
             document.getElementById("game-tile").removeEventListener("click", userClick);
