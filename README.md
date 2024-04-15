@@ -1,7 +1,13 @@
 # How Are Your Reactions
-The purpose of How Are Your Reactions is to provide some tools for anyone interested in testing and or enhancing their reaction times. It can also serve as a minigame competition for a user and their friends to see who can score the best score in our grid clicking game. 
+The purpose of How Are Your Reactions is to provide some tools for anyone interested in testing and or enhancing their reaction times. It can also serve as a minigame competition for a user and their friends to see who can score the best score, or even beat the highscore in our grid clicking game. 
 
 Upon opening the site the user will be met with a fairly minimalistic design to allow the user to more easily gauge what functions the page has to offer.
+
+
+## User stories
+
+
+## Features
 
 ### Welcome to How Are Your Reactions. 
 - Test your reaction time with our **Reaction Game**.  
@@ -17,7 +23,7 @@ Upon opening the site the user will be met with a fairly minimalistic design to 
 
     Website live link: [How are your reactions
     ](https://felteng.github.io/how-are-your-reactions/)
-## Wireframes and initial js function planning
+### Wireframes and initial js function planning
 
 - Wireframes \
 ![image](readme-assets/images/reaction-wireframe.png) \
@@ -32,9 +38,52 @@ Upon opening the site the user will be met with a fairly minimalistic design to 
 
     - speedTimer()
 
-    - precisionGame()
+    - gridGame()
 
     - accuracyTracker()
+
+### Features and look after development
+- **Color, contrast, and background**
+    - The site features a fairly minimalistic combination of light grey, white, and black text to make it easy on the eyes for the user.
+
+    - It also allows for the green and the red colors within the games to provide a higher grade of clarity as to what is happening.
+
+- **Navigation bar**
+    - The navigation bar is featured at the top of the page as any visiting user would expect. \
+    ![image](readme-assets/images/site-navbar.png)
+    - It allows for quick navigation between the 2 game pages, and any potential future pages.
+
+    - If a user is visitng the site from a smaller device the navigation bar is togglable through a conventional "burger menu" icon. \
+    ![image](readme-assets/images/site-navbar-toggled.png)
+
+- **Landing page and Grid Game**
+    - The homepage of the site features the first of the 2 currently available games, the *Grid Game*.
+
+    - The user should quickly be able to spot the difficulty selection menu, as well as the current highscore held for the Grid Game.
+
+    - This should lead to encouragement for the user to give the game a try and see how they can compare. \
+    ![image](readme-assets/images/index-page.png)
+
+    - When the Grid Game is started there will be a tile in the window highlighted in green to let the user know it should be clicked. \
+    ![image](readme-assets/images/grid-game-tile.png)
+
+    - When the game ends the whole window will turn green and after 2 seconds the user may restart the game if they wish. \
+    ![image](readme-assets/images/grid-game-done.png)
+
+- **Reaction Game** 
+    - As the user lands on the reaction game page it should feel even more straightforward than the first page.
+
+    - The user will be met with a similar looking window to press, with the neccessary information above. \
+    ![image](readme-assets/images/reaction-page.png)
+
+    - When the user completes the reaction game there will be prompt in the middle of the game area informing the user how they reacted. \
+    ![image](readme-assets/images/reaction-page-done.png)
+
+- **The Footer**
+    - The footer hold no specific information other than a watermark and the year the page was created.
+
+
+
 
 ## Testing
 
