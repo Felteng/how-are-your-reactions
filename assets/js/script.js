@@ -171,7 +171,12 @@ function gridGame() {
     gridGameTime()
 
 
-
+    /**
+     * Selects a new random tile in the 4x4 grid to be 
+     * higlighted in green. Unless gridGameTime timeout
+     * calls for gameIsOn to be set to false where the
+     * game will instead end next time the tile is clicked 
+     */
     function tileChange() {
 
         if (gameIsOn) {
@@ -216,6 +221,11 @@ function gridGame() {
             
         document.getElementById("game-tile").addEventListener("click", userClick)
 
+        /**
+         * Updates the users score and calls a new tileChange
+         * if the user manages to click before the above
+         * timer runs out
+         */
         function userClick() {
             score += scoreGain;
             currentScore.innerHTML = score;
@@ -226,23 +236,28 @@ function gridGame() {
 
         }  
     }
-
+    
+    /**
+     * Timer for how long the game will run until
+     * gameIsOn is set to false so stopGame gets  
+     * called in tileChange
+     */
     function gridGameTime() {
         setTimeout(() => {
             gameIsOn = false
             
-        }, 10000);
+        }, 15000);
     }
 
     function stopGame() {
-       if (score > highScore) {
+       if (score > highScore) { // Updates highscore if possible
         highScore = score;
         highestScore.innerHTML = highScore
         } 
 
         startBox.style.backgroundColor = "green";
-        setTimeout(() => {
+        setTimeout(() => { // 2 second timer until startGame is called so that the user doesn't misslick another game start.
             startGame()
-        }, 2000);
+        }, 2000); 
     }
 }
