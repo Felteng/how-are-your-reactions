@@ -22,21 +22,55 @@
     <header>
         <div class="header-bar">
             <h1 class="header-h1"><a href="index.html" class="home-link">How are your reactions? </a></h1>
-            <i class="fa-solid fa-bars navbar-toggle" id="navbar-toggle"></i>
-            <div class="nav-bar">
-                <p><a href="index.html" class="game-link"><i class="fa-solid fa-bolt"></i> Reaction Game</a></p>
-                <p class="inactive-page"><a href="grid-game.html" class="game-link"><i class="fa-solid fa-table-cells"></i> Grid Game</a></p>
-            </div>
+            <i class="fa-solid fa-bars" id="navbar-toggle"></i>
+        <div class="nav-bar">
+            <p><a href="index.html" class="game-link"><i class="fa-solid fa-table-cells"class="fa-solid fa-bolt"></i> Grid Game</a></p>
+            <p class="inactive-page"><a href="reaction-game.html" class="game-link"><i class="fa-solid fa-bolt"></i> Reaction Game</a></p>
+        </div>
         </div>
     </header>
 
     <!-- Site main and game content -->
     <main>
-        <p class="game-info">Click the window and wait for it to go from red to green, then click again!</p>
-        <div id="game-box" game-mode="reaction" class="reaction">
-            <p class="user-notif" id="notify-user"></p>
+        <p class="game-info">Choose your difficulty, click the window to start, and continue clicking the green tiles!</p>
+        <select name="difficulty" id="grid-difficulty" title="Difficulty" class="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        <div id="game-box" game-mode="grid" class="grid">
+            <table class="grid-table">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>    
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>    
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>    
+            </table>
+            
         </div>
-        
+        <div class="user-score">
+            <p>Current score: <span id="score"></span></p>
+            <p>Highscore: <span id="highscore"></span></p>
+        </div>
     </main>
 
     <!-- Site footer -->
