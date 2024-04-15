@@ -29,7 +29,7 @@ let gridGameHighscore = document.getElementById("highscore");
  */
 function initializePage() {
     startGame();
-    navToggler.addEventListener("click", toggleNavBar)    
+    navToggler.addEventListener("click", toggleNavBar)
 }
 
 /**
@@ -46,14 +46,14 @@ function toggleNavBar() {
         navToggler.classList.remove("fa-x")
         navToggler.classList.add("fa-bars")
         navToggled = false
-    }     
-    
+    }
+
 }
 
 function startGame() {
     let gameIsOn = false;
 
-    
+
     startBox.addEventListener("click", function () {
 
         if (gameIsOn === false) {
@@ -73,7 +73,7 @@ function startGame() {
 
             startBox.style.backgroundColor = "red";
 
-        } 
+        }
     });
 }
 
@@ -84,10 +84,10 @@ function gameStartTimer(gameMode) {
     let startTime = Math.floor(Math.random() * (MAX - MIN + 1) + MIN); // Generate a random start time between 1 - 5 seconds
 
     // Reaction game start execution
-    
-    if (gameMode === "reaction") { 
 
-         reactionStartTimer = setTimeout(reactionGame, startTime * 1000); // Countdown to call reactionGame function
+    if (gameMode === "reaction") {
+
+        reactionStartTimer = setTimeout(reactionGame, startTime * 1000); // Countdown to call reactionGame function
 
         /**
          * End the game start timer early if the user
@@ -103,9 +103,9 @@ function gameStartTimer(gameMode) {
         }, startTime * 1000)
 
 
-    // Grid game start execution    
+        // Grid game start execution    
 
-    } else if (gameMode === "grid") { 
+    } else if (gameMode === "grid") {
 
         setTimeout(gridGame, startTime * 1000);
 
@@ -138,8 +138,8 @@ function reactionGame() {
      * the game has begun
      */
     reactionGameTimer = setInterval(function () {
-        for (let i = 0; i < 9; i++) {  // For loop of 9 iterations on 11ms interval gives decent accuracy until a fix for precise 1ms timer is implemented
-           reactionTime++ 
+        for (let i = 0; i < 9; i++) { // For loop of 9 iterations on 11ms interval gives decent accuracy until a fix for precise 1ms timer is implemented
+            reactionTime++
         }
     }, 11);
 
@@ -157,7 +157,7 @@ function stopReactionGame() {
     console.log(`Your time was: ${reactionTime}`);
     clearInterval(reactionGameTimer);
     reactionGameTimer = null;
-    userNotification.innerHTML = `Your time was: ${reactionTime}ms` 
+    userNotification.innerHTML = `Your time was: ${reactionTime}ms`
     userNotification.style.display = "block";
     startBox.removeEventListener("click", stopReactionGame) // Remove eventListener to avoid the game function lingering and restarting multiple games every click.
     startGame()
@@ -191,29 +191,29 @@ function gridGame() {
     gridGameTime()
 
 }
-    /**
-     * Selects a new random tile in the 4x4 grid to be 
-     * higlighted in green. Unless gridGameTime timeout
-     * calls for gameIsOn to be set to false where the
-     * game will instead end next time the tile is clicked 
-     */
-    function tileChange() {
+/**
+ * Selects a new random tile in the 4x4 grid to be 
+ * higlighted in green. Unless gridGameTime timeout
+ * calls for gameIsOn to be set to false where the
+ * game will instead end next time the tile is clicked 
+ */
+function tileChange() {
 
-        if (gridGameIsOn) {
+    if (gridGameIsOn) {
         let tileIndex = Math.floor(Math.random() * 16);
         let gameTile = document.getElementsByClassName("grid-table")[0].getElementsByTagName("th")[tileIndex];
         gameTile.setAttribute("id", "game-tile");
         gridTile = document.getElementById("game-tile");
         waitForTileClick();
-        } else {
-            stopGridGame()
-        }
+    } else {
+        stopGridGame()
     }
+}
 
 
 
 function waitForTileClick() {
-    
+
     let count = 0;
 
     /**
@@ -221,12 +221,12 @@ function waitForTileClick() {
      * click the tile within the given "count === x" 
      * the tile will change to a new one
      */
-    tileTimer = setInterval(function() {
+    tileTimer = setInterval(function () {
         for (let i = 0; i < 10; i++) {
-        count++;
+            count++;
 
             if (count === tileTime) {
-                gridScore -= 10 ;
+                gridScore -= 10;
                 gridGameScore.innerHTML = gridScore;
                 clearInterval(tileTimer)
                 gridTile.removeEventListener("click", userClickTile)
@@ -234,9 +234,9 @@ function waitForTileClick() {
                 tileChange()
 
             }
-        }   
-    },10)
-        
+        }
+    }, 10)
+
     gridTile.addEventListener("click", userClickTile)
 
 }
@@ -254,8 +254,8 @@ function userClickTile() {
     gridTile.removeAttribute("id");
     tileChange()
 
-}  
-    
+}
+
 /**
  * Timer for how long the game will run until
  * gameIsOn is set to false so stopGame gets  
@@ -264,20 +264,20 @@ function userClickTile() {
 function gridGameTime() {
     setTimeout(() => {
         gridGameIsOn = false
-        
+
     }, 15000);
 }
 
 function stopGridGame() {
     if (gridScore > gridHighscore) { // Updates highscore if possible
-    gridHighscore = gridScore;
-    gridGameHighscore.innerHTML = gridHighscore
-    } 
+        gridHighscore = gridScore;
+        gridGameHighscore.innerHTML = gridHighscore
+    }
 
     startBox.style.backgroundColor = "green";
     setTimeout(() => { // 2 second timer until startGame is called so that the user doesn't misslick another game start.
         startGame()
-    }, 2000); 
+    }, 2000);
 }
 
 
