@@ -3,9 +3,9 @@
  */
 let startBox = document.getElementById("game-box");
 let userNotification = document.getElementById("notify-user");
-let navBar = document.getElementsByClassName("nav-bar")[0]
-let navToggler = document.getElementById("navbar-toggle")
-let navToggled = false
+let navBar = document.getElementsByClassName("nav-bar")[0];
+let navToggler = document.getElementById("navbar-toggle");
+let navToggled = false;
 // Reaction
 let reactionGameTimer = null;
 let reactionStartTimer = null;
@@ -29,7 +29,7 @@ let gridGameHighscore = document.getElementById("highscore");
  */
 function initializePage() {
     startGame();
-    navToggler.addEventListener("click", toggleNavBar)
+    navToggler.addEventListener("click", toggleNavBar);
 }
 
 /**
@@ -38,14 +38,16 @@ function initializePage() {
 function toggleNavBar() {
     if (navToggled === false) {
         navBar.style.display = "block";
-        navToggler.classList.remove("fa-bars")
-        navToggler.classList.add("fa-x")
+        navToggler.classList.remove("fa-bars");
+        navToggler.classList.add("fa-x");
         navToggled = true;
+
     } else if (navToggled === true) {
-        navBar.style.display = "none"
-        navToggler.classList.remove("fa-x")
-        navToggler.classList.add("fa-bars")
-        navToggled = false
+        navBar.style.display = "none";
+        navToggler.classList.remove("fa-x");
+        navToggler.classList.add("fa-bars");
+        navToggled = false;
+
     }
 
 }
@@ -53,21 +55,18 @@ function toggleNavBar() {
 function startGame() {
     let gameIsOn = false;
 
-
     startBox.addEventListener("click", function () {
-
         if (gameIsOn === false) {
             gameIsOn = true;
-            if (this.getAttribute("game-mode") === "reaction") {
 
+            if (this.getAttribute("game-mode") === "reaction") {
                 let gameMode = "reaction";
                 gameStartTimer(gameMode);
                 userNotification.style.display = "none";
 
             } else if (this.getAttribute("game-mode") === "grid") {
-
                 let gameMode = "grid";
-                gameStartTimer(gameMode)
+                gameStartTimer(gameMode);
 
             }
 
@@ -78,7 +77,6 @@ function startGame() {
 }
 
 function gameStartTimer(gameMode) {
-
     const MIN = 1;
     const MAX = 5;
     let startTime = Math.floor(Math.random() * (MAX - MIN + 1) + MIN); // Generate a random start time between 1 - 5 seconds
@@ -86,31 +84,22 @@ function gameStartTimer(gameMode) {
     // Reaction game start execution
 
     if (gameMode === "reaction") {
-
         reactionStartTimer = setTimeout(reactionGame, startTime * 1000); // Countdown to call reactionGame function
-
-        /**
-         * End the game start timer early if the user
-         * attempts to make preemptively click before
-         * the game has started
-         */
         startBox.addEventListener("click", tooSoon); // Check if user clicks during start timer
 
         setTimeout(function () {
+            startBox.removeEventListener("click", tooSoon); // Remove listener at the same time as the game starts to prevent bugs and loops
 
-            startBox.removeEventListener("click", tooSoon) // Remove listener at the same time as the game starts to prevent bugs and loops
-
-        }, startTime * 1000)
+        }, startTime * 1000);
 
 
         // Grid game start execution    
 
     } else if (gameMode === "grid") {
-
         setTimeout(gridGame, startTime * 1000);
 
     }
-};
+}
 
 /**
  * Called if the user clicks while the reaction game
@@ -118,18 +107,16 @@ function gameStartTimer(gameMode) {
  * and that they should try again
  */
 function tooSoon() {
-
     clearTimeout(reactionStartTimer);
     userNotification.textContent = "Oops! Too soon.. Try again!";
     userNotification.style.display = "block";
-    startBox.removeEventListener("click", tooSoon)
-    startGame()
+    startBox.removeEventListener("click", tooSoon);
+    startGame();
 
 }
 // Reaction game specific JS
 
 function reactionGame() {
-
     reactionTime = null;
     startBox.style.backgroundColor = "green";
 
@@ -139,12 +126,11 @@ function reactionGame() {
      */
     reactionGameTimer = setInterval(function () {
         for (let i = 0; i < 9; i++) { // For loop of 9 iterations on 11ms interval gives decent accuracy until a fix for precise 1ms timer is implemented
-            reactionTime++
+            reactionTime++;
         }
     }, 11);
 
-
-    startBox.addEventListener("click", stopReactionGame)
+    startBox.addEventListener("click", stopReactionGame);
 
 }
 
@@ -153,14 +139,13 @@ function reactionGame() {
  * to end the timer and display the time it took
  */
 function stopReactionGame() {
-
     console.log(`Your time was: ${reactionTime}`);
     clearInterval(reactionGameTimer);
     reactionGameTimer = null;
-    userNotification.innerHTML = `Your time was: ${reactionTime}ms`
+    userNotification.innerHTML = `Your time was: ${reactionTime}ms`;
     userNotification.style.display = "block";
-    startBox.removeEventListener("click", stopReactionGame) // Remove eventListener to avoid the game function lingering and restarting multiple games every click.
-    startGame()
+    startBox.removeEventListener("click", stopReactionGame); // Remove eventListener to avoid the game function lingering and restarting multiple games every click.
+    startGame();
 
 }
 
@@ -172,23 +157,24 @@ function gridGame() {
     gridGameIsOn = true;
     let gridDifficulty = document.getElementById("grid-difficulty").value;
 
-
-
     // Set tile frequency and point gain based on difficulty selection
     if (gridDifficulty === "easy") {
         tileTime = 600;
         scoreGain = 10;
+
     } else if (gridDifficulty === "medium") {
         tileTime = 500;
-        scoreGain = 15
+        scoreGain = 15;
+
     } else if (gridDifficulty === "hard") {
         tileTime = 400;
         scoreGain = 20;
+
     }
 
     startBox.style.backgroundColor = "#b9b9b9";
-    tileChange()
-    gridGameTime()
+    tileChange();
+    gridGameTime();
 
 }
 /**
@@ -205,19 +191,20 @@ function tileChange() {
         gameTile.setAttribute("id", "game-tile");
         gridTile = document.getElementById("game-tile");
         waitForTileClick();
+
     } else {
-        stopGridGame()
+        stopGridGame();
+
     }
 }
 
 
 
 function waitForTileClick() {
-
     let count = 0;
 
     /**
-     * Time trial function so that if the user does not 
+     * Time trial so that if the user does not 
      * click the tile within the given "count === x" 
      * the tile will change to a new one
      */
@@ -228,16 +215,16 @@ function waitForTileClick() {
             if (count === tileTime) {
                 gridScore -= 10;
                 gridGameScore.innerHTML = gridScore;
-                clearInterval(tileTimer)
-                gridTile.removeEventListener("click", userClickTile)
-                gridTile.removeAttribute("id")
-                tileChange()
+                clearInterval(tileTimer);
+                gridTile.removeEventListener("click", userClickTile);
+                gridTile.removeAttribute("id");
+                tileChange();
 
             }
         }
-    }, 10)
+    }, 10);
 
-    gridTile.addEventListener("click", userClickTile)
+    gridTile.addEventListener("click", userClickTile);
 
 }
 
@@ -252,7 +239,7 @@ function userClickTile() {
     clearInterval(tileTimer);
     gridTile.removeEventListener("click", userClickTile);
     gridTile.removeAttribute("id");
-    tileChange()
+    tileChange();
 
 }
 
@@ -263,7 +250,7 @@ function userClickTile() {
  */
 function gridGameTime() {
     setTimeout(() => {
-        gridGameIsOn = false
+        gridGameIsOn = false;
 
     }, 15000);
 }
@@ -271,12 +258,15 @@ function gridGameTime() {
 function stopGridGame() {
     if (gridScore > gridHighscore) { // Updates highscore if possible
         gridHighscore = gridScore;
-        gridGameHighscore.innerHTML = gridHighscore
+        gridGameHighscore.innerHTML = gridHighscore;
+
     }
 
     startBox.style.backgroundColor = "green";
+
     setTimeout(() => { // 2 second timer until startGame is called so that the user doesn't misslick another game start.
-        startGame()
+        startGame();
+
     }, 2000);
 }
 
