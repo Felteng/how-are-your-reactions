@@ -3,6 +3,8 @@ The purpose of How Are Your Reactions is to provide some tools for anyone intere
 
 Upon opening the site the user will be met with a fairly minimalistic design to allow the user to more easily gauge what functions the page has to offer.
 
+![image](readme-assets/images/am-i-responsive.png)
+
 
 ## User stories
 
