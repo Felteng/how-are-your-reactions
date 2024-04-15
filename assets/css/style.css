@@ -85,8 +85,9 @@ main {
 
 .user-notif {
     display: none;
-    font-size: 14
-    0%;
+    font-size: 140%;
+    text-align: center;
+    line-height: 30px;
 }
 
 /* Grid game styling */
