@@ -3,6 +3,8 @@ The purpose of How Are Your Reactions is to provide some tools for anyone intere
 
 Upon opening the site the user will be met with a fairly minimalistic design to allow the user to more easily gauge what functions the page has to offer.
 
+Website live link: [How are your reactions](https://felteng.github.io/how-are-your-reactions/)
+
 ![image](readme-assets/images/am-i-responsive.png)
 
 
@@ -23,8 +25,7 @@ Upon opening the site the user will be met with a fairly minimalistic design to 
 
     - Modify the difficulty yourself to increase the score you gain. But also decrease your window of reaction where you lost points if you fail to click in time!
 
-    Website live link: [How are your reactions
-    ](https://felteng.github.io/how-are-your-reactions/)
+
 ### Wireframes and initial js function planning
 
 - Wireframes \
