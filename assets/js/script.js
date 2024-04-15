@@ -166,7 +166,6 @@ function gridGame() {
     }
 
     startBox.style.backgroundColor = "#b9b9b9";
-    console.log(gridDifficulty)
     tileChange()
     gridGameTime()
 
