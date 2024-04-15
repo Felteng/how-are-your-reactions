@@ -139,10 +139,9 @@ function reactionGame() {
  * to end the timer and display the time it took
  */
 function stopReactionGame() {
-    console.log(`Your time was: ${reactionTime}`);
     clearInterval(reactionGameTimer);
     reactionGameTimer = null;
-    userNotification.innerHTML = `Your time was: ${reactionTime}ms`;
+    userNotification.innerHTML = `Your time was: ${reactionTime}ms <br> Click to start a new game`;
     userNotification.style.display = "block";
     startBox.removeEventListener("click", stopReactionGame); // Remove eventListener to avoid the game function lingering and restarting multiple games every click.
     startGame();
