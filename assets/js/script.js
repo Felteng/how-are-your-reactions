@@ -1,54 +1,72 @@
-// Start nav-bar toggling and eventlistener for starting the game when document is loaded
+/**
+ * Global variables
+ */
+let startBox = document.getElementById("game-box");
+let userNotification = document.getElementById("notify-user");
+let navBar = document.getElementsByClassName("nav-bar")[0]
+let navToggler = document.getElementById("navbar-toggle")
+let navToggled = false
+// Reaction
+let reactionGameTimer = null;
+let reactionStartTimer = null;
+let reactionTime = null;
+// Grid
+let gridHighscore = 0;
+let gridScore = 0;
+let tileTime = null;
+let tileTimer = null;
+let scoreGain = null;
+let gridGameIsOn = false;
+let gridTile = null;
+let gridGameScore = document.getElementById("score");
+let gridGameHighscore = document.getElementById("highscore");
 
 
+
+/**
+ * Start nav-bar toggling and eventlistener for starting the game 
+ * when document is loaded and initializePage is called
+ */
 function initializePage() {
     startGame();
-    navigation();
+    navToggler.addEventListener("click", toggleNavBar)    
 }
 
-// Allow the user to toggle the navbar if their screen size needs it
-function navigation() {
-    let navToggled = false
-
-    let navBar = document.getElementsByClassName("nav-bar")[0]
-    let navToggler = document.getElementById("navbar-toggle")
-
-    navToggler.addEventListener("click", toggleNav)
-
-    function toggleNav() {
-        if (navToggled === false) {
-            navBar.style.display = "block";
-            navToggler.classList.remove("fa-bars")
-            navToggler.classList.add("fa-x")
-            navToggled = true;
-        } else if (navToggled === true) {
-            navBar.style.display = "none"
-            navToggler.classList.remove("fa-x")
-            navToggler.classList.add("fa-bars")
-            navToggled = false
-        }     
-        
-    }
-        
+/**
+ *  Allow the user to toggle the navbar if their screen size needs it
+ */
+function toggleNavBar() {
+    if (navToggled === false) {
+        navBar.style.display = "block";
+        navToggler.classList.remove("fa-bars")
+        navToggler.classList.add("fa-x")
+        navToggled = true;
+    } else if (navToggled === true) {
+        navBar.style.display = "none"
+        navToggler.classList.remove("fa-x")
+        navToggler.classList.add("fa-bars")
+        navToggled = false
+    }     
+    
 }
 
 function startGame() {
     let gameIsOn = false;
 
-    const startBox = document.getElementById("game-box");
+    
     startBox.addEventListener("click", function () {
 
         if (gameIsOn === false) {
             gameIsOn = true;
             if (this.getAttribute("game-mode") === "reaction") {
 
-                const gameMode = "reaction";
+                let gameMode = "reaction";
                 gameStartTimer(gameMode);
-                document.getElementById("notify-user").style.display = "none";
+                userNotification.style.display = "none";
 
             } else if (this.getAttribute("game-mode") === "grid") {
 
-                const gameMode = "grid";
+                let gameMode = "grid";
                 gameStartTimer(gameMode)
 
             }
@@ -61,18 +79,15 @@ function startGame() {
 
 function gameStartTimer(gameMode) {
 
-    const min = 1;
-    const max = 5;
-    let startTime = Math.floor(Math.random() * (max - min + 1) + min); // Generate a random start time between 1 - 5 seconds
+    const MIN = 1;
+    const MAX = 5;
+    let startTime = Math.floor(Math.random() * (MAX - MIN + 1) + MIN); // Generate a random start time between 1 - 5 seconds
 
     // Reaction game start execution
     
     if (gameMode === "reaction") { 
 
-        const startTimer = setTimeout(reactionGame, startTime * 1000); // Countdown to call reactionGame function
-
-        const startBox = document.getElementById("game-box");
-        const userNotification = document.getElementById("notify-user");
+         reactionStartTimer = setTimeout(reactionGame, startTime * 1000); // Countdown to call reactionGame function
 
         /**
          * End the game start timer early if the user
@@ -87,15 +102,6 @@ function gameStartTimer(gameMode) {
 
         }, startTime * 1000)
 
-        function tooSoon() {
-
-            clearTimeout(startTimer);
-            userNotification.textContent = "Oops! Too soon.. Try again!";
-            userNotification.style.display = "block";
-            startBox.removeEventListener("click", tooSoon)
-            startGame()
-
-        }
 
     // Grid game start execution    
 
@@ -106,73 +112,85 @@ function gameStartTimer(gameMode) {
     }
 };
 
+/**
+ * Called if the user clicks while the reaction game
+ * is starting to let them know it was too soon
+ * and that they should try again
+ */
+function tooSoon() {
+
+    clearTimeout(reactionStartTimer);
+    userNotification.textContent = "Oops! Too soon.. Try again!";
+    userNotification.style.display = "block";
+    startBox.removeEventListener("click", tooSoon)
+    startGame()
+
+}
 // Reaction game specific JS
 
 function reactionGame() {
 
-    const startBox = document.getElementById("game-box");
+    reactionTime = null;
     startBox.style.backgroundColor = "green";
-    let sec = 0;
 
     /**
      * Timer to count the time it takes the user to click once
      * the game has begun
      */
-    let timer = setInterval(function () {
+    reactionGameTimer = setInterval(function () {
         for (let i = 0; i < 9; i++) {  // For loop of 9 iterations on 11ms interval gives decent accuracy until a fix for precise 1ms timer is implemented
-           sec++ 
+           reactionTime++ 
         }
     }, 11);
 
-    /**
-     * Wait for user to react and click the game-box
-     * to end the timer and display the time it took
-     */
-    startBox.addEventListener("click", stopGame)
 
-    function stopGame() {
+    startBox.addEventListener("click", stopReactionGame)
 
-        console.log(`Your time was: ${sec}`);
-        clearInterval(timer);
-        document.getElementById("notify-user").style.display = "block";
-        document.getElementById("notify-user").innerHTML = `Your time was: ${sec}ms` 
-        startBox.removeEventListener("click", stopGame) // Remove eventListener to avoid the game function lingering and restarting multiple games every click.
-        startGame()
-
-    }
 }
 
+/**
+ * Wait for user to react and click the game-box
+ * to end the timer and display the time it took
+ */
+function stopReactionGame() {
+
+    console.log(`Your time was: ${reactionTime}`);
+    clearInterval(reactionGameTimer);
+    reactionGameTimer = null;
+    userNotification.innerHTML = `Your time was: ${reactionTime}ms` 
+    userNotification.style.display = "block";
+    startBox.removeEventListener("click", stopReactionGame) // Remove eventListener to avoid the game function lingering and restarting multiple games every click.
+    startGame()
+
+}
 
 // Grid game specific JS
 
-var highScore = 0;
 
 
 function gridGame() {
-    let score = 0;
-    let gameIsOn = true;
-    const gridDifficulty = document.getElementById("grid-difficulty").value;
-    const startBox = document.getElementById("game-box");
-    const currentScore = document.getElementById("score");
-    const highestScore = document.getElementById("highscore")
+    gridGameIsOn = true;
+    let gridDifficulty = document.getElementById("grid-difficulty").value;
+
+
 
     // Set tile frequency and point gain based on difficulty selection
     if (gridDifficulty === "easy") {
-        var tileTime = 600;
-        var scoreGain = 10;
+        tileTime = 600;
+        scoreGain = 10;
     } else if (gridDifficulty === "medium") {
-        var tileTime = 500;
-        var scoreGain = 15
+        tileTime = 500;
+        scoreGain = 15
     } else if (gridDifficulty === "hard") {
-        var tileTime = 400;
-        var scoreGain = 20;
+        tileTime = 400;
+        scoreGain = 20;
     }
 
     startBox.style.backgroundColor = "#b9b9b9";
     tileChange()
     gridGameTime()
 
-
+}
     /**
      * Selects a new random tile in the 4x4 grid to be 
      * higlighted in green. Unless gridGameTime timeout
@@ -181,87 +199,86 @@ function gridGame() {
      */
     function tileChange() {
 
-        if (gameIsOn) {
+        if (gridGameIsOn) {
         let tileIndex = Math.floor(Math.random() * 16);
         let gameTile = document.getElementsByClassName("grid-table")[0].getElementsByTagName("th")[tileIndex];
         gameTile.setAttribute("id", "game-tile");
-        tileClick();
+        gridTile = document.getElementById("game-tile");
+        waitForTileClick();
         } else {
-            stopGame()
+            stopGridGame()
         }
     }
 
 
 
-    function tileClick() {
-        
-        let count = 0;
-
-        /**
-         * Time trial function so that if the user does not 
-         * click the tile within the given "count === x" 
-         * the tile will change to a new one
-         */
-        let timer = setInterval(function() {
-            for (let i = 0; i < 10; i++) {
-            count++;
-
-                if (count === tileTime) {
-                    score -= 10 ;
-                    currentScore.innerHTML = score;
-                    clearInterval(timer)
-                    document.getElementById("game-tile").removeEventListener("click", userClick)
-                    document.getElementById("game-tile").removeAttribute("id")
-                    tileChange()
-
-                }
-            }   
-        },10)
-
-
-
-            
-        document.getElementById("game-tile").addEventListener("click", userClick)
-
-        /**
-         * Updates the users score and calls a new tileChange
-         * if the user manages to click before the above
-         * timer runs out
-         */
-        function userClick() {
-            score += scoreGain;
-            currentScore.innerHTML = score;
-            clearInterval(timer);
-            document.getElementById("game-tile").removeEventListener("click", userClick);
-            document.getElementById("game-tile").removeAttribute("id");
-            tileChange()
-
-        }  
-    }
+function waitForTileClick() {
     
+    let count = 0;
+
     /**
-     * Timer for how long the game will run until
-     * gameIsOn is set to false so stopGame gets  
-     * called in tileChange
+     * Time trial function so that if the user does not 
+     * click the tile within the given "count === x" 
+     * the tile will change to a new one
      */
-    function gridGameTime() {
-        setTimeout(() => {
-            gameIsOn = false
-            
-        }, 15000);
-    }
+    tileTimer = setInterval(function() {
+        for (let i = 0; i < 10; i++) {
+        count++;
 
-    function stopGame() {
-       if (score > highScore) { // Updates highscore if possible
-        highScore = score;
-        highestScore.innerHTML = highScore
-        } 
+            if (count === tileTime) {
+                gridScore -= 10 ;
+                gridGameScore.innerHTML = gridScore;
+                clearInterval(tileTimer)
+                gridTile.removeEventListener("click", userClickTile)
+                gridTile.removeAttribute("id")
+                tileChange()
 
-        startBox.style.backgroundColor = "green";
-        setTimeout(() => { // 2 second timer until startGame is called so that the user doesn't misslick another game start.
-            startGame()
-        }, 2000); 
-    }
+            }
+        }   
+    },10)
+        
+    gridTile.addEventListener("click", userClickTile)
+
 }
+
+/**
+ * Updates the users score and calls a new tileChange
+ * if the user manages to click before the above
+ * timer runs out
+ */
+function userClickTile() {
+    gridScore += scoreGain;
+    gridGameScore.innerHTML = gridScore;
+    clearInterval(tileTimer);
+    gridTile.removeEventListener("click", userClickTile);
+    gridTile.removeAttribute("id");
+    tileChange()
+
+}  
+    
+/**
+ * Timer for how long the game will run until
+ * gameIsOn is set to false so stopGame gets  
+ * called in tileChange
+ */
+function gridGameTime() {
+    setTimeout(() => {
+        gridGameIsOn = false
+        
+    }, 15000);
+}
+
+function stopGridGame() {
+    if (gridScore > gridHighscore) { // Updates highscore if possible
+    gridHighscore = gridScore;
+    gridGameHighscore.innerHTML = gridHighscore
+    } 
+
+    startBox.style.backgroundColor = "green";
+    setTimeout(() => { // 2 second timer until startGame is called so that the user doesn't misslick another game start.
+        startGame()
+    }, 2000); 
+}
+
 
 document.addEventListener("DOMContentLoaded", initializePage);
