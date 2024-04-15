@@ -154,6 +154,7 @@ function stopReactionGame() {
 
 function gridGame() {
     gridGameIsOn = true;
+    gridScore = 0;
     let gridDifficulty = document.getElementById("grid-difficulty").value;
 
     // Set tile frequency and point gain based on difficulty selection
