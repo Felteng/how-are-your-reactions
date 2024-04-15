@@ -11,7 +11,7 @@ let reactionGameTimer = null;
 let reactionStartTimer = null;
 let reactionTime = null;
 // Grid
-let gridHighscore = 0;
+//let gridHighscore = 0;
 let gridScore = 0;
 let tileTime = null;
 let tileTimer = null;
@@ -20,6 +20,7 @@ let gridGameIsOn = false;
 let gridTile = null;
 let gridGameScore = document.getElementById("score");
 let gridGameHighscore = document.getElementById("highscore");
+let gridHighscore = localStorage.getItem("gridHighscore")
 
 
 
@@ -30,6 +31,7 @@ let gridGameHighscore = document.getElementById("highscore");
 function initializePage() {
     startGame();
     navToggler.addEventListener("click", toggleNavBar);
+    gridGameHighscore.innerHTML = gridHighscore;
 }
 
 /**
@@ -257,7 +259,8 @@ function gridGameTime() {
 
 function stopGridGame() {
     if (gridScore > gridHighscore) { // Updates highscore if possible
-        gridHighscore = gridScore;
+        localStorage.setItem("gridHighscore", gridScore);
+        let gridHighscore = localStorage.getItem("gridHighscore")
         gridGameHighscore.innerHTML = gridHighscore;
 
     }
