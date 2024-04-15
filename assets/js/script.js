@@ -1,5 +1,10 @@
 // Start nav-bar toggling and eventlistener for starting the game when document is loaded
-document.addEventListener("DOMContentLoaded", startGame(), navigation())
+
+
+function initializePage() {
+    startGame();
+    navigation();
+}
 
 // Allow the user to toggle the navbar if their screen size needs it
 function navigation() {
@@ -50,9 +55,7 @@ function startGame() {
 
             startBox.style.backgroundColor = "red";
 
-        } else {
-            null // Make it so multiple games cannot get started at the same time by clicking a lot.
-        }
+        } 
     });
 }
 
@@ -260,3 +263,5 @@ function gridGame() {
         }, 2000); 
     }
 }
+
+document.addEventListener("DOMContentLoaded", initializePage);
