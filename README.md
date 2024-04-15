@@ -1,4 +1,8 @@
 # How Are Your Reactions
+The purpose of How Are Your Reactions is to provide some tools for anyone interested in testing and or enhancing their reaction times. It can also serve as a minigame competition for a user and their friends to see who can score the best score in our grid clicking game. 
+
+Upon opening the site the user will be met with a fairly minimalistic design to allow the user to more easily gauge what functions the page has to offer.
+
 ### Welcome to How Are Your Reactions. 
 - Test your reaction time with our **Reaction Game**.  
 
