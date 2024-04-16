@@ -85,10 +85,31 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 - **The Footer**
     - The footer hold no specific information other than a watermark and the year the page was created.
 
+## Technologies
 
+- HTML
+    - HTML was used to create the structural elements of the website.
 
+- CSS 
+    - CSS has been used to apply style and adjusting the layout of the HTML structure.
+
+- JavaScript
+    - JavaScript has been the tool used to create the functionality of the website. Everything from how the games function to being able to toggle the navbar on smaller devices.
+
+- Google Fonts
+    - Google Fonts was used to import the Yantramanav font featured throughout the webiste.
+
+- Font Awesome
+    - Font Awesome has seen use through importing icons to the page. Namely the Grid Game and Reaction Game icons in the navbar.
+
+- Favicon.io
+    - Favicon.io was used to obtain the websites favicon.
 
 ## Testing
+
+### Test Cases
+- Index / Grid Game
+
 
 ### Bugs
 | Bug    | Status      | Description | Solution |
@@ -99,6 +120,19 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 | Game timer result always divisble by 9 | ACTIVE | The result of the timer for the reaction game is always divisble by 9 thanks to the new interval of 11s with a for loop nested inside for *9* iterations. This provdided a bit better accuracy but the timer is still not 1ms precise | *PROPASAL*: Revisit the problem at a later stage and prioritize other elements of the site first |
 |        |              |                        |                  |
 |        |              |                        |                  |
+
+### Validation
+- HTML
+    - W3C validator
+
+- CSS
+    - W3C jigsaw validator
+
+- JavaScript
+    - JSHint?`
+
+- Accessibilty 
+    - Lighthouse
 
 ## Deployment
 
@@ -124,3 +158,7 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 
     - On the pop up window that appears you'll want to click Open Browser to open a new window of your project.
         - There is also the option to click Open Preview if you'd like to have the deployed project displayed within your IDE.
+
+## Credits
+
+### Media
