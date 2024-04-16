@@ -5,22 +5,28 @@ let startBox = document.getElementById("game-box");
 let userNotification = document.getElementById("notify-user");
 let navBar = document.getElementsByClassName("nav-bar")[0];
 let navToggler = document.getElementById("navbar-toggle");
+let gridGameScore = document.getElementById("score");
+let gridHighscoreDisplay = document.getElementById("highscore");
+
+let gridHighscore = localStorage.getItem("gridHighscore");
+
 let currentPage = window.location.pathname;
+
 let navToggled = false;
-// Reaction
+let gridGameIsOn = false;
+
 let reactionGameTimer = null;
 let reactionStartTimer = null;
 let reactionTime = null;
-// Grid
-let gridScore = 0;
 let tileTime = null;
 let tileTimer = null;
 let scoreGain = null;
-let gridGameIsOn = false;
 let gridTile = null;
-let gridHighscore = localStorage.getItem("gridHighscore");
-let gridGameScore = document.getElementById("score");
-let gridHighscoreDisplay = document.getElementById("highscore");
+
+let gridScore = 0;
+
+
+
 
 
 
