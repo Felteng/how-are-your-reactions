@@ -67,12 +67,12 @@ function startGame() {
         if (gameIsOn === false) {
             gameIsOn = true;
 
-            if (this.getAttribute("game-mode") === "reaction") {
+            if (this.getAttribute("data-game-mode") === "reaction") {
                 let gameMode = "reaction";
                 gameStartTimer(gameMode);
                 userNotification.style.display = "none";
 
-            } else if (this.getAttribute("game-mode") === "grid") {
+            } else if (this.getAttribute("data-game-mode") === "grid") {
                 let gameMode = "grid";
                 gameStartTimer(gameMode);
 
