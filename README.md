@@ -110,6 +110,86 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 ### Test Cases
 - Index / Grid Game
 
+    - Open the index page of the website.
+        - Expected output: See the page header with links to both games with *Grid Game* highlighted in black, the name of the page in the header, the grid game istself in the middle of the page with the Highscore displayed above the game window, and the footer at the bottom.
+        - Actual output: Page header with links to both games with *Grid Game* highlighted in black, the name of the page in the header, the grid game istself in the middle of the page with the Highscore displayed above the game window, and the footer at the bottom all visible upon opening the page.
+
+    - Click the page name heading in the header.
+        - Expected output: Have the index page refreshed as it get directed to again.
+        - Actual output: Index page refreshed.
+
+    - Click the *Grid Game* button in the header navbar.
+        - Expected output: Have the index page refreshed as it get directed to again.
+        - Actual output: Index page refreshed.
+
+    - Click the *Reaction Game* button in the header navbar.
+        - Expected output: Get directed to the Reaction Game page.
+        - Actual output: Directed to the Reaction Game page.
+
+    - Click the difficulty selection selection.
+        - Expected output: See a dropdown of difficulties in order, Easy, Medium, and Hard.
+        - Actual output: A dropdown of difficulties in order, Easy, Medium, and Hard displayed.
+
+    - Click the game window in middle of the page with the difficulty set to *Easy* as per the instructions above it and do nothing.
+        - Expected output: Window should turn red for 1 up to 5 seconds until it goes back to the same grey color but with a green tile showing and moving inside it with even an interval, current score should go down by -10 every time the tile moves. After 15 seconds it should stop and the window should go fully green to indicate the game is over.
+        - Actual output: Window turned red for 1 up to 5 seconds until it went back to the same grey color but with a green tile showing and moving inside it with an even interval, current score going down by -10 every time the tile moves. After 15 seconds the game stopped and the window turned fully green.
+
+    - Click the green window to start the game again on *Easy* but this time click the tiles.
+        - Expected output: Current score should go up by 10 every time the tile is clicked, every time the tile is clicked it should also move to a new location, sometimes it might appear in the same location again. If the attempt to click the tile at any point fails before the interval runs out for it to appear again currenct score should go down by -10. 
+        - Actual output: Current score goes up by 10 every time the tile is clicked, every time the tile is clicked it also moves to a new location, sometimes it appears in the same location again. Whenever the attempt to click failed current score went down by -10.
+
+    - Change the game difficulty to *Medium*, click the window, and do nothing.
+        - Expected output: Window should turn red for 1 up to 5 seconds until it goes back to the same grey color but with a green tile showing and moving inside it with even, faster interval than on *Easy*, current score should go down by -10 every time the tile moves. After 15 seconds it should stop and the window should go fully green to indicate the game is over.
+        - Actual output: Window turned red for 1 up to 5 seconds until it went back to the same grey color but with a green tile showing and moving inside it with an even, faster interval than on *Easy*, current score going down by -10 every time the tile moves. After 15 seconds the game stopped and the window turned fully green.
+
+    - Click the green window to start the game again on *Medium* but this time click the tiles.
+        - Expected output: Current score should go up by 15 every time the tile is clicked, every time the tile is clicked it should also move to a new location, sometimes it might appear in the same location again. If the attempt to click the tile at any point fails before the interval runs out for it to appear again currenct score should go down by -10.
+        - Actual output: Current score goes up by 15 every time the tile is clicked, every time the tile is clicked it also moves to a new location, sometimes it appears in the same location again. Whenever the attempt to click failed current score went down by -10.
+
+    - Change the game difficulty to *Hard*, click the window, and do nothing.
+        - Expected output: Window should turn red for 1 up to 5 seconds until it goes back to the same grey color but with a green tile showing and moving inside it with even, faster interval than on *Medium*, current score should go down by -10 every time the tile moves. After 15 seconds it should stop and the window should go fully green to indicate the game is over.
+        - Actual output: Window turned red for 1 up to 5 seconds until it went back to the same grey color but with a green tile showing and moving inside it with an even, faster interval than on *Medium*, current score going down by -10 every time the tile moves. After 15 seconds the game stopped and the window turned fully green.
+
+    - Click the green window to start the game again on *Hard* but this time click the tiles.
+        - Expected output: Current score should go up by 20 every time the tile is clicked, every time the tile is clicked it should also move to a new location, sometimes it might appear in the same location again. If the attempt to click the tile at any point fails before the interval runs out for it to appear again currenct score should go down by -10.
+        - Actual output: Current score goes up by 20 every time the tile is clicked, every time the tile is clicked it also moves to a new location, sometimes it appears in the same location again. Whenever the attempt to click failed current score went down by -10.
+
+    - Spam click the window to start the game
+        - Expected output: Only 1 game should be started, no stacked functions getting called.
+        - Actual output: Only 1 game gets started no matter how many times the user clicks.
+
+- Reaction Game
+    - Open the Reaction Game page by clicking the button for it on the Index page.
+        - Expected output: The user should see the same header but with *Reaction Game* highlighted, the same footer, a slightly different looking game window than the previous one; with a different instruction above it.
+        - Actual output: The same header but with *Reaction Game* highlighted, the same footer, a slightly different looking game window than the previous one; with a different instruction above it, was displayed upon opening the page.
+
+    - Click the page name heading in the header.
+        - Expected output: Get redirected to the index page.
+        - Actual output: Directed back to index page.
+
+    - Click the *Grid Game* button in the header navbar.
+        - Expected output: Get redirected to the index page.
+        - Actual output: Directed back to index page.
+
+    - Click the *Reaction Game* button in the header navbar.
+        - Expected output: Have Reaction Game page refreshed as it gets directed to again.
+        - Actual output: Reaction Game page refreshed.
+
+    - Click the grey game window and do as per the instruction above it.
+        - Expected output: The window should turn red for 1 up to 5 seconds before turning green when the user should click the window. After clicked the green window there should be a text that pops up notifying the user how fast they reacted to the window turning green and how to start the game again.
+        - Actual output: The window turned red for 1 up to 5 seconds before turning green. After clicking the green window there was a text that popped up notifying the user how fast they reacted to the window turning green and how to restart game.
+
+    - Start the game again but this time click the window while it's still red.
+        - Expected output: The internal countdown to turn the window green should stop and the user should be notified that they clicked too soon. 
+        - Actual output: The game never started and user was notified they clicked too soon and that they should try again.
+
+    - Start the game and just wait after the window turns green. Click after waiting for a while.
+        - Expected output: The timer will continue counting until window is clicked and a fairly large number will be displayed after waiting.
+        - Actual output: The timer continued counting until window was clicked and a fairly large number was displayed after clicking.
+
+    - Spam click the window to start the game
+        - Expected output: Only 1 game should be started, no stacked functions getting called.
+        - Actual output: Only 1 game gets started no matter how many times the user clicks.
 
 ### Bugs
 | Bug    | Status      | Description | Solution |
