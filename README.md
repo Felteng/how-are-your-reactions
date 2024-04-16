@@ -7,17 +7,16 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 
 ![image](readme-assets/images/am-i-responsive.png)
 
-
 ## User stories
+- Index / Grid Game
+    - As a visitng user, I would like to put my continous reactions to the test and see how I compare to the highscore.
 
+- Reaction Game
+    - As a visiting user, I would like to test my raw, single input, reaction time.
 
 ## Features
 
 ### Welcome to How Are Your Reactions. 
-- Test your reaction time with our **Reaction Game**.  
-
-    - Simply wait and react as the big window turns green. And see how you did.
-    
 - Additionally you can test and hone your skills when it comes to continous reactions with our **Grid Game**.
     - Features the same start procedure as the Reaction Game but here you will click multiple small green tiles as they appear.
 
@@ -25,6 +24,9 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 
     - Modify the difficulty yourself to increase the score you gain. But also decrease your window of reaction where you lost points if you fail to click in time!
 
+- Test your reaction time with our **Reaction Game**.  
+
+    - Simply wait and react as the big window turns green. And see how you did.
 
 ### Wireframes and initial js function planning
 
@@ -84,6 +86,13 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 
 - **The Footer**
     - The footer hold no specific information other than a watermark and the year the page was created.
+
+The project ended up with more functions than the initial planning, which is of no worry. Some of the functions from the planning ended up not being used or implemented due to a change of plans during the development.
+
+### Future features
+- Acquire more knowledge as to how we would go about implementing a 1ms accurate timer for the reaction game.
+
+- Add more customization options to the Grid Game to allow the user to tailor their experience more.
 
 ## Technologies
 
@@ -198,8 +207,6 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 | Game timer inaccurate | Resolved | When running the game the timer is going a lot slower than the setInterval. There's a built in delay of 4ms in modern browsers | Multiply the time by 4 for better result
 | Game timer can only count every 4ms | Expired | The game will only display the users times in results divisible by 4 as product of the bug fix above | *PROPOSAL*: Rewrite the function to not only rely on setInterval. Possibly a for loop inside the interval? | 
 | Game timer result always divisble by 9 | ACTIVE | The result of the timer for the reaction game is always divisble by 9 thanks to the new interval of 11s with a for loop nested inside for *9* iterations. This provdided a bit better accuracy but the timer is still not 1ms precise | *PROPASAL*: Revisit the problem at a later stage and prioritize other elements of the site first |
-|        |              |                        |                  |
-|        |              |                        |                  |
 
 ### Validation
 - HTML
@@ -243,3 +250,6 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 ## Credits
 
 ### Media
+- Website Favicon from [Favicon.io](https://favicon.io)
+
+- Website background image from [Unsplash](https://unsplash.com) user Shaplined, by Naphtali Marshall.
