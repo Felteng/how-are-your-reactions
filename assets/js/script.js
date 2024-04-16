@@ -5,6 +5,7 @@ let startBox = document.getElementById("game-box");
 let userNotification = document.getElementById("notify-user");
 let navBar = document.getElementsByClassName("nav-bar")[0];
 let navToggler = document.getElementById("navbar-toggle");
+let currentPage = window.location.pathname;
 let navToggled = false;
 // Reaction
 let reactionGameTimer = null;
@@ -31,7 +32,12 @@ let gridHighscore = localStorage.getItem("gridHighscore")
 function initializePage() {
     startGame();
     navToggler.addEventListener("click", toggleNavBar);
-    gridGameHighscore.innerHTML = gridHighscore;
+    
+    if (currentPage === "/index.html") {
+        gridGameHighscore.innerHTML = gridHighscore; 
+
+    }
+    
 }
 
 /**
