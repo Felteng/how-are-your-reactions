@@ -26,11 +26,6 @@ let gridTile = null;
 let gridScore = 0;
 
 
-
-
-
-
-
 /**
  * Start nav-bar toggling and eventlistener for starting the game 
  * when document is loaded and initializePage is called
@@ -39,8 +34,11 @@ function initializePage() {
     startGame();
     navToggler.addEventListener("click", toggleNavBar);
 
-    if (currentPage.includes("index.html")) {
+    if (!currentPage.includes("reaction-game.html")) {
         gridHighscoreDisplay.innerHTML = gridHighscore; 
+        if (gridHighscore === null) {
+            gridHighscoreDisplay.innerHTML = 0;
+        }
 
     }
     
