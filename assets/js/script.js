@@ -32,8 +32,8 @@ let gridHighscore = localStorage.getItem("gridHighscore")
 function initializePage() {
     startGame();
     navToggler.addEventListener("click", toggleNavBar);
-    
-    if (currentPage === "/index.html") {
+
+    if (currentPage.includes("index.html")) {
         gridGameHighscore.innerHTML = gridHighscore; 
 
     }
