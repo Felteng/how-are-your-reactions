@@ -7,6 +7,29 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 
 ![image](readme-assets/images/am-i-responsive.png)
 
+# Table of contents
+- [User stories](#user-stories)
+
+- [Features](#features)
+    - [Wireframes and initial function plans](#wireframes-and-initial-js-function-planning)
+    - [Color, contrast, and background](#color-contrast-and-background)
+    - [Features and look after development](#features-and-look-after-development)
+    - [Future features](#future-features)
+
+- [Technologies used](#technologies-used)
+
+- [Testing](#testing)
+    - [Test Cases](#test-cases)
+    - [Bugs](#bugs)
+    - [Validation](#validation)
+
+- [Deployment](#deployment)
+    - [Web](#web)
+    - [Local](#local)
+
+- [Credits](#credits)
+    - [Media](#media)
+
 ## User stories
 - Index / Grid Game
     - As a new visitng user, I would like to put my continous reactions to the test and see how I compare to the highscore.
@@ -40,6 +63,8 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 ![image](readme-assets/images/reaction-wireframe.png) \
 ![image](readme-assets/images/precision-wireframe.png)
 
+
+
 - Base functions
     - gameStartTimer()
 
@@ -53,12 +78,14 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 
     - accuracyTracker()
 
+### Color, contrast, and background
+- The site features a fairly minimalistic combination of light grey, white, and black text to make it easy on the eyes for the user.
+
+- It also allows for the green and the red colors within the games to provide a higher grade of clarity as to what is happening.
+
+- The website features the Yantramanav font which offers distinct readability and should not feel all that busy.
+
 ### Features and look after development
-- **Color, contrast, and background**
-    - The site features a fairly minimalistic combination of light grey, white, and black text to make it easy on the eyes for the user.
-
-    - It also allows for the green and the red colors within the games to provide a higher grade of clarity as to what is happening.
-
 - **Navigation bar**
     - The navigation bar is featured at the top of the page as any visiting user would expect. \
     ![image](readme-assets/images/site-navbar.png)
@@ -100,7 +127,7 @@ The project ended up with more functions than the initial planning, which is of 
 
 - Add more customization options to the Grid Game to allow the user to tailor their experience more.
 
-## Technologies
+## Technologies used
 
 - HTML
     - HTML was used to create the structural elements of the website.
@@ -121,6 +148,9 @@ The project ended up with more functions than the initial planning, which is of 
     - Favicon.io was used to obtain the websites favicon.
 
 ## Testing
+The website has been tested using chrome devtools. It's responsiveness has been tested using devtools, normal window resizing, as well as 3 different mobile devices and 2 different computer devices. 
+
+Furthermore it has been tested on a selection of different web browsers to assure it functions as intended: Microsoft Edge, Google Chrome, Firefox, Safari, and Samsung Internet Browser.
 
 ### Test Cases
 - Index / Grid Game

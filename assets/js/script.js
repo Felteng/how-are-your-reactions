@@ -167,11 +167,11 @@ function gridGame() {
 
     // Set tile frequency and point gain based on difficulty selection
     if (gridDifficulty === "easy") {
-        tileTime = 600;
+        tileTime = 1000;
         scoreGain = 10;
 
     } else if (gridDifficulty === "medium") {
-        tileTime = 500;
+        tileTime = 700;
         scoreGain = 15;
 
     } else if (gridDifficulty === "hard") {
