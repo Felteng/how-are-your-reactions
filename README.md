@@ -9,10 +9,16 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 
 ## User stories
 - Index / Grid Game
-    - As a visitng user, I would like to put my continous reactions to the test and see how I compare to the highscore.
+    - As a new visitng user, I would like to put my continous reactions to the test and see how I compare to the highscore.
+
+    - As a returning user, I would like to check what the current highscore is and see how I stack up.
+
+    - As a group of users visiting, we would like to have fun and compete with each other to see how we stack up. 
 
 - Reaction Game
-    - As a visiting user, I would like to test my raw, single input, reaction time.
+    - As a new visiting user, I would like to test my raw, single input, reaction time.
+    
+    - As a returning user, I would to test my reaction time again to see if it has declined or improved.
 
 ## Features
 
