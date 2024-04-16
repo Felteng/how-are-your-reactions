@@ -203,16 +203,17 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 
 ### Validation
 - HTML
-    - W3C validator
+    - The W3C validator found no issues within the HTML code on eihter of the pages.
 
 - CSS
-    - W3C jigsaw validator
+    - The W3C jigsaw validator found no issues within the CSS code.
 
 - JavaScript
-    - JSHint?`
+    - The JavaScript code passed through the JSHint linter without any errors. 
 
 - Accessibilty 
-    - Lighthouse
+    - A lighthouse analysis confirmed that the page features a good contrast and readability for the user. \
+    ![image](readme-assets/images/lighthouse.png)
 
 ## Deployment
 
