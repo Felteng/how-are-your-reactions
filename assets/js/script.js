@@ -12,7 +12,6 @@ let reactionGameTimer = null;
 let reactionStartTimer = null;
 let reactionTime = null;
 // Grid
-//let gridHighscore = 0;
 let gridScore = 0;
 let tileTime = null;
 let tileTimer = null;
