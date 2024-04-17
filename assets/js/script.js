@@ -8,8 +8,6 @@ let navToggler = document.getElementById("navbar-toggle");
 let gridGameScore = document.getElementById("score");
 let gridHighscoreDisplay = document.getElementById("highscore");
 
-
-
 let navToggled = false;
 let gridGameIsOn = false;
 
@@ -23,8 +21,6 @@ let gridTile = null;
 
 let gridScore = 0;
 
-
-
 /**
  * Start nav-bar toggling and eventlistener for starting the game 
  * when document is loaded and initializePage is called
@@ -34,7 +30,7 @@ function initializePage() {
 
     startGame();
     navToggler.addEventListener("click", toggleNavBar);
-    
+
     /**
      * If the page url does not contain reaction-game.html this
      * function will set the gridHighscore display. This is to 
@@ -42,13 +38,13 @@ function initializePage() {
      * does not exist. 
      */
     if (!currentPage.includes("reaction-game.html")) {
-        gridHighscoreDisplay.innerHTML = localStorage.getItem("gridHighscore"); 
+        gridHighscoreDisplay.innerHTML = localStorage.getItem("gridHighscore");
         if (localStorage.getItem("gridHighscore") === null) {
             gridHighscoreDisplay.innerHTML = 0;
         }
 
     }
-    
+
 }
 
 /**
@@ -183,7 +179,7 @@ function gridGame() {
 
     /**
      * Set tile frequency and point gain based on difficulty selection
-    */ 
+     */
     if (gridDifficulty === "easy") {
         tileTime = 1000;
         scoreGain = 10;
