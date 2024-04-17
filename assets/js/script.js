@@ -33,6 +33,12 @@ function initializePage() {
     startGame();
     navToggler.addEventListener("click", toggleNavBar);
 
+    /**
+     * If the page url does not contain reaction-game.html this
+     * function will set the gridHighscore display. This is to 
+     * avoid a console error on pages where that HTML code
+     * does not exist. 
+     */
     if (!currentPage.includes("reaction-game.html")) {
         gridHighscoreDisplay.innerHTML = localStorage.getItem("gridHighscore"); 
         if (localStorage.getItem("gridHighscore") === null) {
