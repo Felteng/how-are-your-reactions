@@ -8,8 +8,6 @@ let navToggler = document.getElementById("navbar-toggle");
 let gridGameScore = document.getElementById("score");
 let gridHighscoreDisplay = document.getElementById("highscore");
 
-let gridHighscore = localStorage.getItem("gridHighscore");
-
 let currentPage = window.location.pathname;
 
 let navToggled = false;
@@ -26,6 +24,7 @@ let gridTile = null;
 let gridScore = 0;
 
 
+
 /**
  * Start nav-bar toggling and eventlistener for starting the game 
  * when document is loaded and initializePage is called
@@ -35,8 +34,8 @@ function initializePage() {
     navToggler.addEventListener("click", toggleNavBar);
 
     if (!currentPage.includes("reaction-game.html")) {
-        gridHighscoreDisplay.innerHTML = gridHighscore; 
-        if (gridHighscore === null) {
+        gridHighscoreDisplay.innerHTML = localStorage.getItem("gridHighscore"); 
+        if (localStorage.getItem("gridHighscore") === null) {
             gridHighscoreDisplay.innerHTML = 0;
         }
 
@@ -268,11 +267,13 @@ function gridGameTime() {
 }
 
 function stopGridGame() {
-    if (gridScore > gridHighscore) { // Updates highscore if possible
+    if (gridScore > localStorage.getItem("gridHighscore")) { // Updates highscore if possible
         localStorage.setItem("gridHighscore", gridScore);
-        let gridHighscore = localStorage.getItem("gridHighscore");
-        gridHighscoreDisplay.innerHTML = gridHighscore;
+        gridHighscoreDisplay.innerHTML = localStorage.getItem("gridHighscore");
 
+    } else if (localStorage.getItem("gridHighscore") === null) {
+        localStorage.setItem("gridHighscore", gridScore);
+        gridHighscoreDisplay.innerHTML = localStorage.getItem("gridHighscore");
     }
 
     startBox.style.backgroundColor = "green";
