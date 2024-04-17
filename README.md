@@ -127,6 +127,8 @@ The project ended up with more functions than the initial planning, which is of 
 
 - Add more customization options to the Grid Game to allow the user to tailor their experience more.
 
+- Split the JavaScript into 2 different .js files for the seperate games to allow for better maintainability.
+
 ## Technologies used
 
 - HTML
