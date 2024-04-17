@@ -209,7 +209,8 @@ Furthermore it has been tested on a selection of different web browsers to assur
 
     - Set a score higher than the value of highscore.
         - Expected output: If the value is higher then the highscore value should be updated to the value of current score.
-        - Actual output: The highscore value was updated to the new value, same as the current score.
+        - Actual output: The highscore value was updated to the new value, same as the current score. \
+        ![image](readme-assets/images/grid-test-cases.png)
 
 - Reaction Game
     - Open the Reaction Game page by clicking the button for it on the Index page.
@@ -242,7 +243,8 @@ Furthermore it has been tested on a selection of different web browsers to assur
 
     - Spam click the window to start the game
         - Expected output: Only 1 game should be started, no stacked functions getting called.
-        - Actual output: Only 1 game gets started no matter how many times the user clicks.
+        - Actual output: Only 1 game gets started no matter how many times the user clicks. \
+        ![image](readme-assets/images/reaction-test-cases.png)
 
 ### Bugs
 | Bug    | Status      | Description | Solution |
