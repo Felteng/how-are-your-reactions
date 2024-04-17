@@ -1,5 +1,5 @@
 # How Are Your Reactions
-The purpose of How Are Your Reactions is to provide some tools for anyone interested in testing and or enhancing their reaction times. It can also serve as a minigame competition for a user and their friends to see who can score the best score, or even beat the highscore in our grid clicking game. 
+The purpose of How Are Your Reactions is to provide some tools for anyone interested in testing and or enhancing their reaction times. It can also serve as a minigame competition for a user and their friends to see who can score the best score, or even beat the high score in our grid clicking game. 
 
 Upon opening the site the user will be met with a fairly minimalistic design to allow the user to more easily gauge what functions the page has to offer.
 
@@ -32,9 +32,9 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 
 ## User stories
 - Index / Grid Game
-    - As a new visitng user, I would like to put my continous reactions to the test and see how what highscore I can score.
+    - As a new visitng user, I would like to put my continous reactions to the test and see how what high score I can score.
 
-    - As a returning user, I would like to test how I compare to my current highscore.
+    - As a returning user, I would like to test how I compare to my current high score.
 
     - As a group of users visiting, we would like to have fun and compete with each other to see how we stack up. 
 
@@ -49,7 +49,7 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 - Additionally you can test and hone your skills when it comes to continous reactions with our **Grid Game**.
     - Features the same start procedure as the Reaction Game but here you will click multiple small green tiles as they appear.
 
-    - Keep track of your score and your highscore.
+    - Keep track of your score and your high score.
 
     - Modify the difficulty yourself to increase the score you gain. But also decrease your window of reaction where you lost points if you fail to click in time!
 
@@ -97,7 +97,7 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 - **Landing page and Grid Game**
     - The homepage of the site features the first of the 2 currently available games, the *Grid Game*.
 
-    - The user should quickly be able to spot the difficulty selection menu, as well as the current highscore held for the Grid Game.
+    - The user should quickly be able to spot the difficulty selection menu, as well as the current high score held for the Grid Game.
 
     - This should lead to encouragement for the user to give the game a try and see how they can compare. \
     ![image](readme-assets/images/index-page.png)
@@ -158,8 +158,8 @@ Furthermore it has been tested on a selection of different web browsers to assur
 - Index / Grid Game
 
     - Open the index page of the website.
-        - Expected output: See the page header with links to both games with *Grid Game* highlighted in black, the name of the page in the header, the grid game istself in the middle of the page with the Highscore displayed above the game window, and the footer at the bottom.
-        - Actual output: Page header with links to both games with *Grid Game* highlighted in black, the name of the page in the header, the grid game istself in the middle of the page with the Highscore displayed above the game window, and the footer at the bottom all visible upon opening the page.
+        - Expected output: See the page header with links to both games with *Grid Game* highlighted in black, the name of the page in the header, the grid game istself in the middle of the page with the high score displayed above the game window, and the footer at the bottom.
+        - Actual output: Page header with links to both games with *Grid Game* highlighted in black, the name of the page in the header, the grid game istself in the middle of the page with the high score displayed above the game window, and the footer at the bottom all visible upon opening the page.
 
     - Click the page name heading in the header.
         - Expected output: Have the index page refreshed as it get directed to again.
@@ -205,13 +205,13 @@ Furthermore it has been tested on a selection of different web browsers to assur
         - Expected output: Only 1 game should be started, no stacked functions getting called.
         - Actual output: Only 1 game gets started no matter how many times the user clicks.
 
-    - If the highscore is 0, set a negative score.
-        - Expected output: The highscore should update to the negative value of current score.
-        - Actual output: The highscore turned into a negative number.
+    - If the high score is 0, set a negative score.
+        - Expected output: The high score should update to the negative value of current score.
+        - Actual output: The high score turned into a negative number.
 
-    - Set a score higher than the value of highscore.
-        - Expected output: If the value is higher then the highscore value should be updated to the value of current score.
-        - Actual output: The highscore value was updated to the new value, same as the current score. \
+    - Set a score higher than the value of high score.
+        - Expected output: If the value is higher then the high score value should be updated to the value of current score.
+        - Actual output: The high score value was updated to the new value, same as the current score. \
         ![image](readme-assets/images/grid-test-cases.png)
 
 - Reaction Game
@@ -255,7 +255,7 @@ Furthermore it has been tested on a selection of different web browsers to assur
 | Game timer inaccurate | Resolved | When running the game the timer is going a lot slower than the setInterval. There's a built in delay of 4ms in modern browsers | Multiply the time by 4 for better result
 | Game timer can only count every 4ms | Expired | The game will only display the users times in results divisible by 4 as product of the bug fix above | *PROPOSAL*: Rewrite the function to not only rely on setInterval. Possibly a for loop inside the interval? | 
 | Game timer result always divisble by 9 | ACTIVE | The result of the timer for the reaction game is always divisble by 9 thanks to the new interval of 11s with a for loop nested inside for *9* iterations. This provdided a bit better accuracy but the timer is still not 1ms precise | *PROPASAL*: Revisit the problem at a later stage and prioritize other elements of the site first |
-| Grid game highscore not displayed to the user | Resolved | The grid game highscore is not always displayed to the user if the page url does not include "index.html" | Make the initializePage function check if currentPage does not contain "reaction-game.html" as opposed to if it contains "index.html" |
+| Grid game high score not displayed to the user | Resolved | The grid game high score is not always displayed to the user if the page url does not include "index.html" | Make the initializePage function check if currentPage does not contain "reaction-game.html" as opposed to if it contains "index.html" |
 
 ### Validation
 - HTML
