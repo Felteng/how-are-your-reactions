@@ -6,7 +6,7 @@ let userNotification = document.getElementById("notify-user");
 let navBar = document.getElementsByClassName("nav-bar")[0];
 let navToggler = document.getElementById("navbar-toggle");
 let gridGameScore = document.getElementById("score");
-let gridHighscoreDisplay = document.getElementById("highscore");
+let gridHighScoreDisplay = document.getElementById("HighScore");
 
 let navToggled = false;
 let gridGameIsOn = false;
@@ -33,14 +33,14 @@ function initializePage() {
 
     /**
      * If the page url does not contain reaction-game.html this
-     * function will set the gridHighscore display. This is to 
+     * function will set the gridHighScore display. This is to 
      * avoid a console error on pages where that HTML code
      * does not exist. 
      */
     if (!currentPage.includes("reaction-game.html")) {
-        gridHighscoreDisplay.innerHTML = localStorage.getItem("gridHighscore");
-        if (localStorage.getItem("gridHighscore") === null) {
-            gridHighscoreDisplay.innerHTML = 0;
+        gridHighScoreDisplay.innerHTML = localStorage.getItem("gridHighScore");
+        if (localStorage.getItem("gridHighScore") === null) {
+            gridHighScoreDisplay.innerHTML = 0;
         }
 
     }
@@ -278,13 +278,13 @@ function gridGameTime() {
 }
 
 function stopGridGame() {
-    if (gridScore > localStorage.getItem("gridHighscore")) { // Updates highscore if possible
-        localStorage.setItem("gridHighscore", gridScore);
-        gridHighscoreDisplay.innerHTML = localStorage.getItem("gridHighscore");
+    if (gridScore > localStorage.getItem("gridHighScore")) { // Updates highs core if possible
+        localStorage.setItem("gridHighScore", gridScore);
+        gridHighScoreDisplay.innerHTML = localStorage.getItem("gridHighScore");
 
-    } else if (localStorage.getItem("gridHighscore") === null) {
-        localStorage.setItem("gridHighscore", gridScore);
-        gridHighscoreDisplay.innerHTML = localStorage.getItem("gridHighscore");
+    } else if (localStorage.getItem("gridHighScore") === null) {
+        localStorage.setItem("gridHighScore", gridScore);
+        gridHighScoreDisplay.innerHTML = localStorage.getItem("gridHighScore");
     }
 
     startBox.style.backgroundColor = "green";
