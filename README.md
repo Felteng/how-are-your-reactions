@@ -32,7 +32,7 @@ Website live link: [How are your reactions](https://felteng.github.io/how-are-yo
 
 ## User stories
 - Index / Grid Game
-    - As a new visitng user, I would like to put my continous reactions to the test and see how what high score I can score.
+    - As a new visiting user, I would like to put my continous reactions to the test and see how what high score I can score.
 
     - As a returning user, I would like to test how I compare to my current high score.
 
@@ -182,24 +182,24 @@ Furthermore it has been tested on a selection of different web browsers to assur
         - Actual output: Window turned red for 1 up to 5 seconds until it went back to the same grey color but with a green tile showing and moving inside it with an even interval, current score going down by -10 every time the tile moves. After 15 seconds the game stopped and the window turned fully green.
 
     - Click the green window to start the game again on *Easy* but this time click the tiles.
-        - Expected output: Current score should go up by 10 every time the tile is clicked, every time the tile is clicked it should also move to a new location, sometimes it might appear in the same location again. If the attempt to click the tile at any point fails before the interval runs out for it to appear again currenct score should go down by -10. 
-        - Actual output: Current score goes up by 10 every time the tile is clicked, every time the tile is clicked it also moves to a new location, sometimes it appears in the same location again. Whenever the attempt to click failed current score went down by -10.
+        - Expected output: Current score should go up by 10 every time the tile is clicked, every time the tile is clicked it should also move to a new location, sometimes it might appear in the same location again. If the attempt to click the tile at any point fails before the interval runs out for it to appear again current score should go down by -10. 
+        - Actual output: Current score goes up by 10 every time the tile is clicked, every time the tile is clicked it also moves to a new location, sometimes it appears in the same location again. When ever the attempt to click failed current score went down by -10.
 
     - Change the game difficulty to *Medium*, click the window, and do nothing.
         - Expected output: Window should turn red for 1 up to 5 seconds until it goes back to the same grey color but with a green tile showing and moving inside it with even, faster interval than on *Easy*, current score should go down by -10 every time the tile moves. After 15 seconds it should stop and the window should go fully green to indicate the game is over.
         - Actual output: Window turned red for 1 up to 5 seconds until it went back to the same grey color but with a green tile showing and moving inside it with an even, faster interval than on *Easy*, current score going down by -10 every time the tile moves. After 15 seconds the game stopped and the window turned fully green.
 
     - Click the green window to start the game again on *Medium* but this time click the tiles.
-        - Expected output: Current score should go up by 15 every time the tile is clicked, every time the tile is clicked it should also move to a new location, sometimes it might appear in the same location again. If the attempt to click the tile at any point fails before the interval runs out for it to appear again currenct score should go down by -10.
-        - Actual output: Current score goes up by 15 every time the tile is clicked, every time the tile is clicked it also moves to a new location, sometimes it appears in the same location again. Whenever the attempt to click failed current score went down by -10.
+        - Expected output: Current score should go up by 15 every time the tile is clicked, every time the tile is clicked it should also move to a new location, sometimes it might appear in the same location again. If the attempt to click the tile at any point fails before the interval runs out for it to appear again current score should go down by -10.
+        - Actual output: Current score goes up by 15 every time the tile is clicked, every time the tile is clicked it also moves to a new location, sometimes it appears in the same location again. When ever the attempt to click failed current score went down by -10.
 
     - Change the game difficulty to *Hard*, click the window, and do nothing.
         - Expected output: Window should turn red for 1 up to 5 seconds until it goes back to the same grey color but with a green tile showing and moving inside it with even, faster interval than on *Medium*, current score should go down by -10 every time the tile moves. After 15 seconds it should stop and the window should go fully green to indicate the game is over.
         - Actual output: Window turned red for 1 up to 5 seconds until it went back to the same grey color but with a green tile showing and moving inside it with an even, faster interval than on *Medium*, current score going down by -10 every time the tile moves. After 15 seconds the game stopped and the window turned fully green.
 
     - Click the green window to start the game again on *Hard* but this time click the tiles.
-        - Expected output: Current score should go up by 20 every time the tile is clicked, every time the tile is clicked it should also move to a new location, sometimes it might appear in the same location again. If the attempt to click the tile at any point fails before the interval runs out for it to appear again currenct score should go down by -10.
-        - Actual output: Current score goes up by 20 every time the tile is clicked, every time the tile is clicked it also moves to a new location, sometimes it appears in the same location again. Whenever the attempt to click failed current score went down by -10.
+        - Expected output: Current score should go up by 20 every time the tile is clicked, every time the tile is clicked it should also move to a new location, sometimes it might appear in the same location again. If the attempt to click the tile at any point fails before the interval runs out for it to appear again current score should go down by -10.
+        - Actual output: Current score goes up by 20 every time the tile is clicked, every time the tile is clicked it also moves to a new location, sometimes it appears in the same location again. When ever the attempt to click failed current score went down by -10.
 
     - Spam click the window to start the game.
         - Expected output: Only 1 game should be started, no stacked functions getting called.
