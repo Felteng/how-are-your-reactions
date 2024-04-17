@@ -6,7 +6,7 @@ let userNotification = document.getElementById("notify-user");
 let navBar = document.getElementsByClassName("nav-bar")[0];
 let navToggler = document.getElementById("navbar-toggle");
 let gridGameScore = document.getElementById("score");
-let gridHighScoreDisplay = document.getElementById("HighScore");
+let gridHighScoreDisplay = document.getElementById("high-score");
 
 let navToggled = false;
 let gridGameIsOn = false;
