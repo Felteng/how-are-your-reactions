@@ -199,9 +199,17 @@ Furthermore it has been tested on a selection of different web browsers to assur
         - Expected output: Current score should go up by 20 every time the tile is clicked, every time the tile is clicked it should also move to a new location, sometimes it might appear in the same location again. If the attempt to click the tile at any point fails before the interval runs out for it to appear again currenct score should go down by -10.
         - Actual output: Current score goes up by 20 every time the tile is clicked, every time the tile is clicked it also moves to a new location, sometimes it appears in the same location again. Whenever the attempt to click failed current score went down by -10.
 
-    - Spam click the window to start the game
+    - Spam click the window to start the game.
         - Expected output: Only 1 game should be started, no stacked functions getting called.
         - Actual output: Only 1 game gets started no matter how many times the user clicks.
+
+    - If the highscore is 0, set a negative score.
+        - Expected output: The highscore should update to the negative value of current score.
+        - Actual output: The highscore turned into a negative number.
+
+    - Set a score higher than the value of highscore.
+        - Expected output: If the value is higher then the highscore value should be updated to the value of current score.
+        - Actual output: The highscore value was updated to the new value, same as the current score.
 
 - Reaction Game
     - Open the Reaction Game page by clicking the button for it on the Index page.
