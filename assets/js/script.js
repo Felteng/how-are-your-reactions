@@ -72,6 +72,11 @@ function toggleNavBar() {
 function startGame() {
     let gameIsOn = false;
 
+    /**
+     * Use the gameIsOn variable to avoid multiple games
+     * being started with the user clicking many times
+     * on the start window.
+     */
     startBox.addEventListener("click", function () {
         if (gameIsOn === false) {
             gameIsOn = true;
@@ -174,7 +179,9 @@ function gridGame() {
     gridScore = 0;
     let gridDifficulty = document.getElementById("grid-difficulty").value;
 
-    // Set tile frequency and point gain based on difficulty selection
+    /**
+     * Set tile frequency and point gain based on difficulty selection
+    */ 
     if (gridDifficulty === "easy") {
         tileTime = 1000;
         scoreGain = 10;
