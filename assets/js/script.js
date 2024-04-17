@@ -8,7 +8,7 @@ let navToggler = document.getElementById("navbar-toggle");
 let gridGameScore = document.getElementById("score");
 let gridHighscoreDisplay = document.getElementById("highscore");
 
-let currentPage = window.location.pathname;
+
 
 let navToggled = false;
 let gridGameIsOn = false;
@@ -30,9 +30,11 @@ let gridScore = 0;
  * when document is loaded and initializePage is called
  */
 function initializePage() {
+    let currentPage = window.location.pathname;
+
     startGame();
     navToggler.addEventListener("click", toggleNavBar);
-
+    
     /**
      * If the page url does not contain reaction-game.html this
      * function will set the gridHighscore display. This is to 
